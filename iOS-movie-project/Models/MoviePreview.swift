@@ -7,10 +7,23 @@
 //
 
 import Foundation
+import ObjectMapper
 
 class MoviePreview {
     
-    var id: Int!
+    var movieId: Int!
     var title: String?
     var posterPath: String?
+    
+    required init?(map: Map) {
+        if map.JSON[ApiConstants.MovieKeys.movieId] == nil { return nil }
+    }
+}
+
+extension MoviePreview: Mappable {
+    func mapping(map: Map) {
+        movieId <- map[ApiConstants.MovieKeys.movieId]
+        title <- map[ApiConstants.MovieKeys.title]
+        posterPath <- map[ApiConstants.MovieKeys.posterPath]
+    }
 }

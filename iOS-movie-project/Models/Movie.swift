@@ -7,17 +7,37 @@
 //
 
 import Foundation
+import ObjectMapper
 
 class Movie {
     
-    var id: Int!
+    var movieId: Int!
     var title: String?
-    var releaseDate: String?
-    var runtime: Int?
     var posterPath: String?
     var backdropPath: String?
-//    var genres: [something]?
+    var releaseDate: String?
+    var runtime: Int?
+    var genres: [String]?
     var overview: String?
     var imbdId: Int?
     var similarMovies: [MoviePreview]?
+    
+    required init?(map: Map) {
+        if map.JSON[ApiConstants.MovieKeys.movieId] == nil { return nil }
+    }
+}
+
+extension Movie: Mappable {
+    
+    func mapping(map: Map) {
+        movieId <- map[ApiConstants.MovieKeys.movieId]
+        title <- map[ApiConstants.MovieKeys.title]
+        posterPath <- map[ApiConstants.MovieKeys.posterPath]
+        backdropPath <- map[ApiConstants.MovieKeys.backdropPath]
+        releaseDate <- map[ApiConstants.MovieKeys.releaseDate]
+        runtime <- map[ApiConstants.MovieKeys.runtime]
+//        genres <- map[]
+        overview <- map[ApiConstants.MovieKeys.overview]
+        imbdId <- map[ApiConstants.MovieKeys.imbdId]
+    }
 }
