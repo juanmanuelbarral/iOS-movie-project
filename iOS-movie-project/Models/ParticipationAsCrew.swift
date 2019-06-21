@@ -11,17 +11,17 @@ import ObjectMapper
 
 class ParticipationAsCrew: Participation {
     
-    var job: String?
+    var job: String!
     
     required init?(map: Map) {
         super.init(map: map)
-        if map.JSON["job"] == nil {
+        if map.JSON[Keys.job.rawValue] == nil {
             job = "N/A"
         }
     }
     
     override func mapping(map: Map) {
         super.mapping(map: map)
-        job <- map["job"]
+        job <- map[Keys.job.rawValue]
     }
 }

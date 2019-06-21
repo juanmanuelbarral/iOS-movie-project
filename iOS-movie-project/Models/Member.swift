@@ -17,16 +17,16 @@ class Member: Mappable {
     var profilePath: String?
     
     required init?(map: Map) {
-        if map.JSON["id"] == nil { return nil }
-        if map.JSON[ApiConstants.PersonKeys.profilePath] == nil {
+        if map.JSON[Keys.personId.rawValue] == nil { return nil }
+        if map.JSON[Keys.profilePath.rawValue] == nil {
             profilePath = ApiManager.Images.imageNotFound.rawValue
         }
     }
     
     func mapping(map: Map) {
-        personId <- map["id"]
-        name <- map["name"]
-        profilePath <- map["profile_path"]
+        personId <- map[Keys.personId.rawValue]
+        name <- map[Keys.name.rawValue]
+        profilePath <- map[Keys.profilePath.rawValue]
     }
 }
 

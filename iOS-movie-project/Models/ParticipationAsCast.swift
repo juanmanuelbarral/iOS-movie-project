@@ -11,17 +11,17 @@ import ObjectMapper
 
 class ParticipationAsCast: Participation {
     
-    var character: String?
+    var character: String!
     
     required init?(map: Map) {
         super.init(map: map)
-        if map.JSON["character"] == nil {
+        if map.JSON[Keys.character.rawValue] == nil {
             character = "N/A"
         }
     }
     
     override func mapping(map: Map) {
         super.mapping(map: map)
-        character <- map["character"]
+        character <- map[Keys.character.rawValue]
     }    
 }
