@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		2CD8665B4BC055986E6D979A /* Pods_iOS_movie_project.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 497CB591ABCDB33D4F64FC03 /* Pods_iOS_movie_project.framework */; };
+		920D33F022BED1AD0090AA3A /* MovieViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 920D33EE22BED1AD0090AA3A /* MovieViewCell.swift */; };
+		920D33F122BED1AD0090AA3A /* MovieViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 920D33EF22BED1AD0090AA3A /* MovieViewCell.xib */; };
+		920D33F322BEDCCC0090AA3A /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 920D33F222BEDCCC0090AA3A /* UIColor.swift */; };
 		922D7BA722B3284C005CFF4F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 922D7BA622B3284C005CFF4F /* AppDelegate.swift */; };
 		922D7BA922B3284C005CFF4F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 922D7BA822B3284C005CFF4F /* ViewController.swift */; };
 		922D7BAC22B3284C005CFF4F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 922D7BAA22B3284C005CFF4F /* Main.storyboard */; };
@@ -31,6 +34,9 @@
 		391A37DA8864940DEB62A650 /* Pods-iOS-movie-project.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOS-movie-project.release.xcconfig"; path = "Pods/Target Support Files/Pods-iOS-movie-project/Pods-iOS-movie-project.release.xcconfig"; sourceTree = "<group>"; };
 		497CB591ABCDB33D4F64FC03 /* Pods_iOS_movie_project.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iOS_movie_project.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		586C72C33BEC449B1582B2B3 /* Pods-iOS-movie-project.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOS-movie-project.debug.xcconfig"; path = "Pods/Target Support Files/Pods-iOS-movie-project/Pods-iOS-movie-project.debug.xcconfig"; sourceTree = "<group>"; };
+		920D33EE22BED1AD0090AA3A /* MovieViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieViewCell.swift; sourceTree = "<group>"; };
+		920D33EF22BED1AD0090AA3A /* MovieViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MovieViewCell.xib; sourceTree = "<group>"; };
+		920D33F222BEDCCC0090AA3A /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		922D7BA322B3284C005CFF4F /* iOS-movie-project.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "iOS-movie-project.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		922D7BA622B3284C005CFF4F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		922D7BA822B3284C005CFF4F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -119,6 +125,8 @@
 			children = (
 				922D7BAA22B3284C005CFF4F /* Main.storyboard */,
 				922D7BAF22B3284F005CFF4F /* LaunchScreen.storyboard */,
+				920D33EE22BED1AD0090AA3A /* MovieViewCell.swift */,
+				920D33EF22BED1AD0090AA3A /* MovieViewCell.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -160,6 +168,7 @@
 		922D7BBE22B32F61005CFF4F /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				920D33F222BEDCCC0090AA3A /* UIColor.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -225,6 +234,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				922D7BB122B3284F005CFF4F /* LaunchScreen.storyboard in Resources */,
+				920D33F122BED1AD0090AA3A /* MovieViewCell.xib in Resources */,
 				922D7BAE22B3284F005CFF4F /* Assets.xcassets in Resources */,
 				922D7BAC22B3284C005CFF4F /* Main.storyboard in Resources */,
 			);
@@ -284,8 +294,10 @@
 			files = (
 				9257B78E22BC56D800DAFFE4 /* ParticipationAsCrew.swift in Sources */,
 				9257B78A22BC56B800DAFFE4 /* CrewMember.swift in Sources */,
+				920D33F022BED1AD0090AA3A /* MovieViewCell.swift in Sources */,
 				928D041F22B60E3400F18893 /* Movie.swift in Sources */,
 				928D042322B72A1100F18893 /* CastMember.swift in Sources */,
+				920D33F322BEDCCC0090AA3A /* UIColor.swift in Sources */,
 				928D041D22B60D4A00F18893 /* Person.swift in Sources */,
 				922D7BA922B3284C005CFF4F /* ViewController.swift in Sources */,
 				922D7BBD22B32E5A005CFF4F /* ApiManager.swift in Sources */,
