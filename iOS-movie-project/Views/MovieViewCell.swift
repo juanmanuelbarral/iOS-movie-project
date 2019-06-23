@@ -27,7 +27,7 @@ class MovieViewCell: UICollectionViewCell {
         self.moviePreview = moviePreview
         
         if let posterPath = moviePreview.posterPath {
-            moviePoster.kf.setImage(with: URL(string: "\(ApiManager.Images.baseUrl.rawValue)/\(ApiManager.Images.posterSize.rawValue)\(posterPath)"))
+            moviePoster.kf.setImage(with: URL(string: "\(ApiManager.Images.baseUrl.rawValue)\(ApiManager.Images.posterSize.rawValue)\(posterPath)"))
         } else {
             moviePoster.kf.setImage(with: URL(string: ApiManager.Images.imageNotFound.rawValue))
         }

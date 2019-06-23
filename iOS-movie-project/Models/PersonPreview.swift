@@ -12,14 +12,12 @@ import ObjectMapper
 class PersonPreview {
     
     var personId: Int!
-    var name: String?
+    var name: String!
     var profilePath: String!
     
     required init?(map: Map) {
         if map.JSON[Person.Keys.personId.rawValue] == nil { return nil }
-        if map.JSON[Person.Keys.profilePath.rawValue] == nil {
-            profilePath = ApiManager.Images.imageNotFound.rawValue
-        }
+        if map.JSON[Person.Keys.name.rawValue] == nil { return nil }
     }
 }
 
