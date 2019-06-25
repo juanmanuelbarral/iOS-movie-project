@@ -11,6 +11,8 @@
 		920D33F022BED1AD0090AA3A /* MovieViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 920D33EE22BED1AD0090AA3A /* MovieViewCell.swift */; };
 		920D33F122BED1AD0090AA3A /* MovieViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 920D33EF22BED1AD0090AA3A /* MovieViewCell.xib */; };
 		920D33F322BEDCCC0090AA3A /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 920D33F222BEDCCC0090AA3A /* UIColor.swift */; };
+		9224F60122C1B9E000592848 /* MovieViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9224F60022C1B9E000592848 /* MovieViewController.swift */; };
+		9224F60322C1BC1000592848 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9224F60222C1BC1000592848 /* SearchViewController.swift */; };
 		922D7BA722B3284C005CFF4F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 922D7BA622B3284C005CFF4F /* AppDelegate.swift */; };
 		922D7BA922B3284C005CFF4F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 922D7BA822B3284C005CFF4F /* ViewController.swift */; };
 		922D7BAC22B3284C005CFF4F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 922D7BAA22B3284C005CFF4F /* Main.storyboard */; };
@@ -39,6 +41,8 @@
 		920D33EE22BED1AD0090AA3A /* MovieViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieViewCell.swift; sourceTree = "<group>"; };
 		920D33EF22BED1AD0090AA3A /* MovieViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MovieViewCell.xib; sourceTree = "<group>"; };
 		920D33F222BEDCCC0090AA3A /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
+		9224F60022C1B9E000592848 /* MovieViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieViewController.swift; sourceTree = "<group>"; };
+		9224F60222C1BC1000592848 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		922D7BA322B3284C005CFF4F /* iOS-movie-project.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "iOS-movie-project.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		922D7BA622B3284C005CFF4F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		922D7BA822B3284C005CFF4F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -141,6 +145,8 @@
 			isa = PBXGroup;
 			children = (
 				922D7BA822B3284C005CFF4F /* ViewController.swift */,
+				9224F60022C1B9E000592848 /* MovieViewController.swift */,
+				9224F60222C1BC1000592848 /* SearchViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -303,7 +309,9 @@
 				9257B78A22BC56B800DAFFE4 /* CrewMember.swift in Sources */,
 				920D33F022BED1AD0090AA3A /* MovieViewCell.swift in Sources */,
 				926BB5E122BF395C00F8747E /* PersonViewCell.swift in Sources */,
+				9224F60322C1BC1000592848 /* SearchViewController.swift in Sources */,
 				928D041F22B60E3400F18893 /* Movie.swift in Sources */,
+				9224F60122C1B9E000592848 /* MovieViewController.swift in Sources */,
 				928D042322B72A1100F18893 /* CastMember.swift in Sources */,
 				920D33F322BEDCCC0090AA3A /* UIColor.swift in Sources */,
 				928D041D22B60D4A00F18893 /* Person.swift in Sources */,
