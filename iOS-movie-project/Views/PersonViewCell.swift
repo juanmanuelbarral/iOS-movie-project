@@ -20,7 +20,7 @@ class PersonViewCell: UICollectionViewCell {
         super.awakeFromNib()
         
         personProfile.layer.borderWidth = 2
-        personProfile.layer.borderColor = UIColor(hex: 0x04E762).cgColor
+        personProfile.layer.borderColor = UIColor(named: "Person")?.cgColor
         personProfile.layer.cornerRadius = CGFloat(20)
     }
 

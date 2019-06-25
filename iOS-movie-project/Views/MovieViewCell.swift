@@ -20,7 +20,7 @@ class MovieViewCell: UICollectionViewCell {
         super.awakeFromNib()
         
         moviePoster.layer.borderWidth = 2
-        moviePoster.layer.borderColor = UIColor(hex: 0x00BFFF).cgColor
+        moviePoster.layer.borderColor = UIColor(named: "Movie")?.cgColor
     }
     
     func configCell(moviePreview: MoviePreview) {
