@@ -41,26 +41,30 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="search-screen" translatesAutoresizingMaskIntoConstraints="NO" id="KXy-aJ-APE">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="471.5"/>
                             </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="search-button" translatesAutoresizingMaskIntoConstraints="NO" id="gum-5Z-Btl">
-                                <rect key="frame" x="142" y="533" width="130" height="130"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="130" id="89Z-Wt-oOX"/>
-                                    <constraint firstAttribute="width" secondItem="gum-5Z-Btl" secondAttribute="height" multiplier="1:1" id="mhk-9e-eXj"/>
-                                </constraints>
-                            </imageView>
                             <searchBar contentMode="redraw" searchBarStyle="minimal" placeholder="Search" translatesAutoresizingMaskIntoConstraints="NO" id="nRG-Ec-GKK">
                                 <rect key="frame" x="0.0" y="184" width="414" height="56"/>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nIc-SE-85d">
+                                <rect key="frame" x="142" y="533" width="130" height="130"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="130" id="LUr-a0-P8A"/>
+                                    <constraint firstAttribute="width" secondItem="nIc-SE-85d" secondAttribute="height" multiplier="1:1" id="wgw-LR-hDV"/>
+                                </constraints>
+                                <state key="normal" image="search-button"/>
+                                <connections>
+                                    <action selector="onTouchSearchButton:" destination="mz9-Kr-XC8" eventType="touchUpInside" id="Cf8-Nd-MhS"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" name="Background"/>
                         <constraints>
                             <constraint firstItem="KXy-aJ-APE" firstAttribute="height" secondItem="hU3-n0-0vk" secondAttribute="height" multiplier="0.65" id="MDD-uq-63v"/>
                             <constraint firstItem="qBv-dI-tPa" firstAttribute="trailing" secondItem="KXy-aJ-APE" secondAttribute="trailing" id="MFH-3s-CBi"/>
                             <constraint firstItem="KXy-aJ-APE" firstAttribute="top" secondItem="qBv-dI-tPa" secondAttribute="top" id="NKw-hV-hA7"/>
-                            <constraint firstItem="gum-5Z-Btl" firstAttribute="centerY" secondItem="hU3-n0-0vk" secondAttribute="centerY" multiplier="1.65" id="YRu-Qf-0Bz"/>
-                            <constraint firstItem="gum-5Z-Btl" firstAttribute="centerX" secondItem="hU3-n0-0vk" secondAttribute="centerX" id="bjn-fu-0zm"/>
+                            <constraint firstItem="nIc-SE-85d" firstAttribute="centerX" secondItem="hU3-n0-0vk" secondAttribute="centerX" id="YZz-CE-VWe"/>
                             <constraint firstItem="nRG-Ec-GKK" firstAttribute="centerY" secondItem="KXy-aJ-APE" secondAttribute="centerY" multiplier="0.9" id="hDZ-m4-bJQ"/>
+                            <constraint firstItem="nIc-SE-85d" firstAttribute="centerY" secondItem="hU3-n0-0vk" secondAttribute="centerY" multiplier="1.65" id="hFl-2s-U7M"/>
                             <constraint firstItem="nRG-Ec-GKK" firstAttribute="trailing" secondItem="qBv-dI-tPa" secondAttribute="trailing" id="mwc-qj-efH"/>
                             <constraint firstItem="nRG-Ec-GKK" firstAttribute="leading" secondItem="qBv-dI-tPa" secondAttribute="leading" id="nWg-3o-Ef2"/>
                             <constraint firstItem="KXy-aJ-APE" firstAttribute="leading" secondItem="qBv-dI-tPa" secondAttribute="leading" id="xby-rT-b00"/>
@@ -70,8 +74,8 @@
                     <navigationItem key="navigationItem" id="FqG-SP-Syk"/>
                     <connections>
                         <outlet property="searchBar" destination="nRG-Ec-GKK" id="gCj-O0-0pk"/>
-                        <outlet property="searchButton" destination="gum-5Z-Btl" id="DhP-yn-uWn"/>
-                        <segue destination="924-Vk-m7x" kind="show" identifier="searchToResults" id="hQD-CY-aFW"/>
+                        <outlet property="searchButton" destination="nIc-SE-85d" id="XwO-GL-J0i"/>
+                        <segue destination="924-Vk-m7x" kind="show" identifier="fromSearchToResults" id="hQD-CY-aFW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HgU-LN-3sU" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -87,7 +91,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="A6O-0w-U1M">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="725"/>
+                                <rect key="frame" x="0.0" y="100" width="414" height="625"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="zEa-xo-iZF">
                                     <size key="itemSize" width="50" height="50"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -111,7 +115,7 @@
                             <constraint firstItem="A6O-0w-U1M" firstAttribute="leading" secondItem="eaa-f9-MGA" secondAttribute="leading" id="DxE-tf-HKq"/>
                             <constraint firstItem="eaa-f9-MGA" firstAttribute="bottom" secondItem="A6O-0w-U1M" secondAttribute="bottom" id="bmg-gF-Icp"/>
                             <constraint firstItem="eaa-f9-MGA" firstAttribute="trailing" secondItem="A6O-0w-U1M" secondAttribute="trailing" id="ngk-CN-dhK"/>
-                            <constraint firstItem="A6O-0w-U1M" firstAttribute="top" secondItem="eaa-f9-MGA" secondAttribute="top" id="yDe-Lw-9SM"/>
+                            <constraint firstItem="A6O-0w-U1M" firstAttribute="top" secondItem="eaa-f9-MGA" secondAttribute="top" constant="100" id="yDe-Lw-9SM"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="eaa-f9-MGA"/>
                     </view>
@@ -584,6 +588,6 @@
         </namedColor>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="KFT-k9-KMV"/>
+        <segue reference="TWr-fy-rwd"/>
     </inferredMetricsTieBreakers>
 </document>
