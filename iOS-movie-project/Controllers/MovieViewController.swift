@@ -21,6 +21,9 @@ class MovieViewController: UIViewController {
     @IBOutlet weak var year: UILabel!
     @IBOutlet weak var runtime: UILabel!
     
+    var movie: Movie? = nil
+    var movieId: Int? = nil
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

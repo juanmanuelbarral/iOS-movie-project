@@ -10,21 +10,28 @@ import UIKit
 
 class ResultsViewController: UIViewController {
 
+    @IBOutlet weak var resultsCollectionView: UICollectionView!
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        if let movieVC = segue.destination as? MovieViewController {
+            movieVC.movieId = 320288
+        }
+        
+        if let personVC = segue.destination as? PersonViewController {
+            personVC.personId = 1001657
+        }
     }
-    */
-
+    
+    @IBAction func goToMovie(_ sender: Any) {
+        performSegue(withIdentifier: "fromResultsToMovie", sender: nil)
+    }
+    
+    @IBAction func goToPerson(_ sender: Any) {
+        performSegue(withIdentifier: "fromResultsToPerson", sender: nil)
+    }
 }
