@@ -18,6 +18,47 @@ class ApiManager {
     
     private init() {}
     
+    // MULTI SEARCH
+    // https://api.themoviedb.org/3/search/multi?api_key=<<api_key>>&language=en-US&query=<<query>>
+    func performMultiSearch(query: String, onCompletion: @escaping ([String:Any]?, Error?) -> Void) {
+        let queryFormatted = query.replacingOccurrences(of: " ", with: "%20")
+        let url = "\(ApiManager.Config.baseUrl.rawValue)/search/multi?api_key=\(ApiManager.Config.apiKey.rawValue)&language=\(ApiManager.Config.language.rawValue)&query=\(queryFormatted)"
+        Alamofire.request(url).responseJSON { (response) in
+            switch response.result {
+            case .success(let value):
+                let jsonResponse = value as! JsonType
+                let resultsArray = jsonResponse["results"] as! [JsonType]
+                var movieResults: [MoviePreview] = []
+                var personResults: [PersonPreview] = []
+                resultsArray.forEach{ (result) in
+                    let type = result["media_type"] as! String
+                    switch type {
+                    case "movie":
+                        if let moviePreview = Mapper<MoviePreview>().map(JSON: result) {
+                            movieResults.append(moviePreview)
+                        }
+                        
+                    case "person":
+                        if let personPreview = Mapper<PersonPreview>().map(JSON: result) {
+                            personResults.append(personPreview)
+                        }
+                        
+                    default:
+                        print("Other type caught in the search of \(query)")
+                    }
+                }
+                let returnDictionary: [String:Any] = [
+                    "movie": movieResults,
+                    "person": personResults
+                ]
+                onCompletion(returnDictionary, nil)
+                
+            case .failure(let error):
+                onCompletion(nil, error)
+            }
+        }
+    }
+    
     // GET POPULAR MOVIES
     // https://api.themoviedb.org/3/movie/popular?api_key=<<api_key>>&language=en-US&page=1
     func getPopularMovies(onCompletion: @escaping ([MoviePreview]?, Error?) -> Void) {

@@ -41,7 +41,7 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="search-screen" translatesAutoresizingMaskIntoConstraints="NO" id="KXy-aJ-APE">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="471.5"/>
                             </imageView>
-                            <searchBar contentMode="redraw" searchBarStyle="minimal" placeholder="Search" translatesAutoresizingMaskIntoConstraints="NO" id="nRG-Ec-GKK">
+                            <searchBar contentMode="redraw" barStyle="black" searchBarStyle="minimal" placeholder="Search" translatesAutoresizingMaskIntoConstraints="NO" id="nRG-Ec-GKK">
                                 <rect key="frame" x="0.0" y="184" width="414" height="56"/>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
@@ -309,7 +309,7 @@
                         <color key="backgroundColor" name="Background"/>
                         <constraints>
                             <constraint firstItem="r0P-ea-NTZ" firstAttribute="top" secondItem="pX2-tp-Vg0" secondAttribute="top" id="AuA-bc-GTV"/>
-                            <constraint firstItem="lEd-OO-UbC" firstAttribute="top" secondItem="Hik-kV-q9u" secondAttribute="top" priority="250" constant="20" id="ZkF-fZ-Abw"/>
+                            <constraint firstItem="lEd-OO-UbC" firstAttribute="top" secondItem="Hik-kV-q9u" secondAttribute="top" priority="250" constant="30" id="ZkF-fZ-Abw"/>
                             <constraint firstItem="Hik-kV-q9u" firstAttribute="bottom" secondItem="r0P-ea-NTZ" secondAttribute="bottom" id="fZo-gf-DqE"/>
                             <constraint firstItem="Hik-kV-q9u" firstAttribute="trailing" secondItem="r0P-ea-NTZ" secondAttribute="trailing" id="gqP-eV-zfq"/>
                             <constraint firstItem="r0P-ea-NTZ" firstAttribute="leading" secondItem="Hik-kV-q9u" secondAttribute="leading" id="q7y-mh-dgI"/>
@@ -415,14 +415,14 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="929"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="23c-4c-CJ6">
-                                        <rect key="frame" x="132" y="31" width="150" height="255"/>
+                                        <rect key="frame" x="132" y="30" width="150" height="255"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="255" id="M8D-fS-Rkl"/>
                                             <constraint firstAttribute="width" constant="150" id="REB-2R-s4u"/>
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Person name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tKW-6N-iQc">
-                                        <rect key="frame" x="139" y="296" width="136" height="29"/>
+                                        <rect key="frame" x="139" y="295" width="136" height="29"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
                                         <color key="textColor" name="Title text"/>
                                         <nil key="highlightedColor"/>
@@ -430,55 +430,55 @@
                                         <size key="shadowOffset" width="1" height="2"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Known for" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="as8-aE-sQP">
-                                        <rect key="frame" x="161.5" y="332" width="91" height="23"/>
+                                        <rect key="frame" x="161.5" y="331" width="91" height="23"/>
                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="19"/>
                                         <color key="textColor" name="Text"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Born" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gud-Ot-yu5">
-                                        <rect key="frame" x="20" y="378" width="35" height="20"/>
+                                        <rect key="frame" x="20" y="377" width="35" height="20"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                         <color key="textColor" name="Title text"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="June 16, 1996" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zMF-kQ-p2N">
-                                        <rect key="frame" x="20" y="401" width="113" height="22"/>
+                                        <rect key="frame" x="20" y="400" width="113" height="22"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                         <color key="textColor" name="Text"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Died" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dKy-Mb-2Eh">
-                                        <rect key="frame" x="360" y="378" width="34" height="20"/>
+                                        <rect key="frame" x="360" y="377" width="34" height="20"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                         <color key="textColor" name="Title text"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="October 26, 2096" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZHd-4q-e15">
-                                        <rect key="frame" x="249" y="401" width="145" height="22"/>
+                                        <rect key="frame" x="249" y="400" width="145" height="22"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                         <color key="textColor" name="Text"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="From" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d3E-P7-vmo">
-                                        <rect key="frame" x="20" y="446" width="38" height="20"/>
+                                        <rect key="frame" x="20" y="445" width="38" height="20"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                         <color key="textColor" name="Title text"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Somewhere, England" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5SZ-3b-beV">
-                                        <rect key="frame" x="20" y="469" width="171" height="22"/>
+                                        <rect key="frame" x="20" y="468" width="171" height="22"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                         <color key="textColor" name="Text"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Biography" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OIL-zD-Jl3">
-                                        <rect key="frame" x="20" y="514" width="89" height="22"/>
+                                        <rect key="frame" x="20" y="513" width="89" height="22"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                         <color key="textColor" name="Title text"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" bouncesZoom="NO" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NWm-2o-qFf">
-                                        <rect key="frame" x="20" y="541" width="374" height="120"/>
+                                        <rect key="frame" x="20" y="540" width="374" height="120"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="120" id="M4k-xZ-os8"/>
                                         </constraints>
@@ -488,7 +488,7 @@
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="q66-hb-7pX">
-                                        <rect key="frame" x="0.0" y="684" width="414" height="220"/>
+                                        <rect key="frame" x="0.0" y="683" width="414" height="220"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="220" id="C7A-Fl-5kJ"/>
                                         </constraints>
@@ -520,7 +520,7 @@
                                     <constraint firstItem="5SZ-3b-beV" firstAttribute="leading" secondItem="d3E-P7-vmo" secondAttribute="leading" id="ED0-m5-Q4B"/>
                                     <constraint firstItem="gud-Ot-yu5" firstAttribute="top" secondItem="as8-aE-sQP" secondAttribute="bottom" constant="23" id="FRm-XD-pSF"/>
                                     <constraint firstItem="ZHd-4q-e15" firstAttribute="trailing" secondItem="NWm-2o-qFf" secondAttribute="trailing" id="GBO-CQ-G6P"/>
-                                    <constraint firstItem="23c-4c-CJ6" firstAttribute="top" secondItem="4oJ-eF-Y9d" secondAttribute="top" constant="31" id="Ioh-EI-q9a"/>
+                                    <constraint firstItem="23c-4c-CJ6" firstAttribute="top" secondItem="4oJ-eF-Y9d" secondAttribute="top" constant="30" id="Ioh-EI-q9a"/>
                                     <constraint firstItem="dKy-Mb-2Eh" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="gud-Ot-yu5" secondAttribute="trailing" constant="8" symbolic="YES" id="J8Q-B5-hGu"/>
                                     <constraint firstItem="OIL-zD-Jl3" firstAttribute="top" secondItem="5SZ-3b-beV" secondAttribute="bottom" constant="23" id="JCA-hq-Gb4"/>
                                     <constraint firstItem="dKy-Mb-2Eh" firstAttribute="centerY" secondItem="gud-Ot-yu5" secondAttribute="centerY" id="Kml-xX-XPl"/>
@@ -559,6 +559,17 @@
                         <viewLayoutGuide key="safeArea" id="Kzv-R1-VPy"/>
                     </view>
                     <size key="freeformSize" width="414" height="1100"/>
+                    <connections>
+                        <outlet property="biographyText" destination="NWm-2o-qFf" id="R7D-IB-vD0"/>
+                        <outlet property="bornDateLabel" destination="zMF-kQ-p2N" id="zR6-o7-Ls3"/>
+                        <outlet property="diedDateLabel" destination="ZHd-4q-e15" id="zlC-8C-ocY"/>
+                        <outlet property="fromPlaceLabel" destination="5SZ-3b-beV" id="IWv-lL-V2J"/>
+                        <outlet property="knownForLabel" destination="as8-aE-sQP" id="WPa-pG-8Rc"/>
+                        <outlet property="nameLabel" destination="tKW-6N-iQc" id="vYz-rf-aAq"/>
+                        <outlet property="participationCollectionView" destination="q66-hb-7pX" id="c7U-vF-DoA"/>
+                        <outlet property="profilePicture" destination="23c-4c-CJ6" id="EHM-sp-njk"/>
+                        <outlet property="scrollView" destination="4oJ-eF-Y9d" id="lFY-nq-Mm4"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="enq-ah-xoX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

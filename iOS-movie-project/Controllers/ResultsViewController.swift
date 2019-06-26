@@ -11,10 +11,15 @@ import UIKit
 class ResultsViewController: UIViewController {
 
     @IBOutlet weak var resultsCollectionView: UICollectionView!
+    
+    var results: [String:Any]!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        let movies = results["movie"] as? [MoviePreview]
+        let people = results["person"] as? [PersonPreview]
+        print(movies)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
