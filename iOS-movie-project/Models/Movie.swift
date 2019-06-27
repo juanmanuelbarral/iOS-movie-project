@@ -12,7 +12,7 @@ import ObjectMapper
 class Movie: Mappable {
     
     var movieId: Int!
-    var title: String?
+    var title: String!
     var posterPath: String!
     var backdropPath: String?
     var releaseDate: String?
@@ -23,9 +23,7 @@ class Movie: Mappable {
     
     required init?(map: Map) {
         if map.JSON[Keys.movieId.rawValue] == nil { return nil }
-        if map.JSON[Keys.posterPath.rawValue] == nil {
-            posterPath = ApiManager.Images.imageNotFound.rawValue
-        }
+        if map.JSON[Keys.title.rawValue] == nil { return nil }
     }
     
     func mapping(map: Map) {

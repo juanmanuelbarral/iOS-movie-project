@@ -16,7 +16,7 @@ class SearchViewController: UIViewController {
     let apiManager = ApiManager.sharedInstance
     var searchIsActive: Bool = false
     var searchText: String = ""
-    var results: [String: Any] = [:]
+    var segueResults: [String: Any] = [:]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,7 +25,7 @@ class SearchViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let resultsVC = segue.destination as? ResultsViewController {
-            resultsVC.results = self.results
+            resultsVC.results = self.segueResults
         }
     }
     
@@ -33,7 +33,7 @@ class SearchViewController: UIViewController {
         if searchIsActive {
             apiManager.performMultiSearch(query: searchText) { (results: [String : Any]?, error: Error?) in
                 if let results = results {
-                    self.results = results
+                    self.segueResults = results
                     self.performSegue(withIdentifier: "fromSearchToResults", sender: nil)
                 }
                 

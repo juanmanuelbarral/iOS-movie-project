@@ -10,31 +10,40 @@ import UIKit
 
 class ResultsViewController: UIViewController {
 
+    let apiManager = ApiManager.sharedInstance
     var results: [String:Any] = [:]
+    var segueElement: Any? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        let movies = results["movie"] as? [MoviePreview]
-        let people = results["person"] as? [PersonPreview]
-        print(movies)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let movieVC = segue.destination as? MovieViewController {
-            movieVC.movieId = 320288
+            movieVC.movie = (segueElement as! Movie)
         }
         
         if let personVC = segue.destination as? PersonViewController {
-            personVC.personId = 1001657
+            personVC.person = (segueElement as! Person)
         }
     }
     
     @IBAction func goToMovie(_ sender: Any) {
-        performSegue(withIdentifier: "fromResultsToMovie", sender: nil)
+        apiManager.getDetailsMovie(movieId: 320288) { (movie, error) in
+            if let movie = movie {
+                self.segueElement = movie
+                self.performSegue(withIdentifier: "fromResultsToMovie", sender: nil)
+            }
+        }
     }
     
     @IBAction func goToPerson(_ sender: Any) {
         performSegue(withIdentifier: "fromResultsToPerson", sender: nil)
+        apiManager.getDetailsPerson(personId: 1001657) { (person, error) in
+            if let person = person {
+                self.segueElement = person
+                self.performSegue(withIdentifier: "fromResultsToPerson", sender: nil)
+            }
+        }
     }
 }
