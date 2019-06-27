@@ -16,11 +16,10 @@ class SearchViewController: UIViewController {
     let apiManager = ApiManager.sharedInstance
     var searchIsActive: Bool = false
     var searchText: String = ""
-    var results: [String: Any]? = nil
+    var results: [String: Any] = [:]
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         searchBar.delegate = self
     }
     
@@ -31,16 +30,27 @@ class SearchViewController: UIViewController {
     }
     
     @IBAction func onTouchSearchButton(_ sender: Any) {
-        //performSegue(withIdentifier: "fromSearchToResults", sender: nil)
         if searchIsActive {
             apiManager.performMultiSearch(query: searchText) { (results: [String : Any]?, error: Error?) in
                 if let results = results {
                     self.results = results
                     self.performSegue(withIdentifier: "fromSearchToResults", sender: nil)
                 }
+                
+                if let error = error {
+                    let alert = self.messageAlert(
+                        title: "Oops! there was a problem with your search",
+                        message: "Check your connection to the internet and try again.\n\(error.localizedDescription)"
+                    )
+                    self.present(alert, animated: true, completion: nil)
+                }
             }
         } else {
-            // TODO: show a message "Type in something!" or sth like that
+            let alert = self.messageAlert(
+                title: "Empty search",
+                message: "Enter something to search for in the search bar!"
+            )
+            self.present(alert, animated: true, completion: nil)
         }
     }
 }

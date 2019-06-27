@@ -90,25 +90,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="725"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="A6O-0w-U1M">
-                                <rect key="frame" x="0.0" y="100" width="414" height="625"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="zEa-xo-iZF">
-                                    <size key="itemSize" width="50" height="50"/>
-                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                </collectionViewFlowLayout>
-                                <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="9Wf-bS-YGa">
-                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </view>
-                                    </collectionViewCell>
-                                </cells>
-                            </collectionView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vij-8p-gV9">
                                 <rect key="frame" x="93" y="19" width="65" height="40"/>
                                 <color key="backgroundColor" name="Text"/>
@@ -127,23 +108,26 @@
                                     <action selector="goToPerson:" destination="924-Vk-m7x" eventType="touchUpInside" id="uNd-qL-jBk"/>
                                 </connections>
                             </button>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" indicatorStyle="black" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Knl-Hv-lWY">
+                                <rect key="frame" x="0.0" y="79" width="414" height="646"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" name="Background"/>
                         <constraints>
                             <constraint firstItem="vij-8p-gV9" firstAttribute="leading" secondItem="eaa-f9-MGA" secondAttribute="leading" constant="93" id="C9G-mV-Nm0"/>
-                            <constraint firstItem="A6O-0w-U1M" firstAttribute="leading" secondItem="eaa-f9-MGA" secondAttribute="leading" id="DxE-tf-HKq"/>
+                            <constraint firstItem="eaa-f9-MGA" firstAttribute="bottom" secondItem="Knl-Hv-lWY" secondAttribute="bottom" id="CBc-WK-ihr"/>
                             <constraint firstItem="vij-8p-gV9" firstAttribute="baseline" secondItem="MIr-N2-iwc" secondAttribute="baseline" id="FcU-e1-xbr"/>
                             <constraint firstItem="vij-8p-gV9" firstAttribute="top" secondItem="eaa-f9-MGA" secondAttribute="top" constant="19" id="IHW-ee-Goy"/>
+                            <constraint firstItem="eaa-f9-MGA" firstAttribute="trailing" secondItem="Knl-Hv-lWY" secondAttribute="trailing" id="QDX-Jy-XqO"/>
                             <constraint firstItem="MIr-N2-iwc" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="vij-8p-gV9" secondAttribute="trailing" constant="8" symbolic="YES" id="T3V-0B-6c4"/>
+                            <constraint firstItem="Knl-Hv-lWY" firstAttribute="top" secondItem="vij-8p-gV9" secondAttribute="bottom" constant="20" id="VWg-Y5-FG3"/>
                             <constraint firstItem="eaa-f9-MGA" firstAttribute="trailing" secondItem="MIr-N2-iwc" secondAttribute="trailing" constant="106" id="ZzX-iU-iaw"/>
-                            <constraint firstItem="eaa-f9-MGA" firstAttribute="bottom" secondItem="A6O-0w-U1M" secondAttribute="bottom" id="bmg-gF-Icp"/>
-                            <constraint firstItem="eaa-f9-MGA" firstAttribute="trailing" secondItem="A6O-0w-U1M" secondAttribute="trailing" id="ngk-CN-dhK"/>
-                            <constraint firstItem="A6O-0w-U1M" firstAttribute="top" secondItem="eaa-f9-MGA" secondAttribute="top" constant="100" id="yDe-Lw-9SM"/>
+                            <constraint firstItem="Knl-Hv-lWY" firstAttribute="leading" secondItem="eaa-f9-MGA" secondAttribute="leading" id="k6d-uc-Nhx"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="eaa-f9-MGA"/>
                     </view>
                     <connections>
-                        <outlet property="resultsCollectionView" destination="A6O-0w-U1M" id="yZc-LM-LMI"/>
                         <segue destination="qzY-5C-RqA" kind="show" identifier="fromResultsToMovie" id="TWr-fy-rwd"/>
                         <segue destination="CmM-Bk-lts" kind="show" identifier="fromResultsToPerson" id="NTl-Ox-jiW"/>
                     </connections>

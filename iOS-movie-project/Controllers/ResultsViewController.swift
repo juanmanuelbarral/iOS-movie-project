@@ -10,9 +10,7 @@ import UIKit
 
 class ResultsViewController: UIViewController {
 
-    @IBOutlet weak var resultsCollectionView: UICollectionView!
-    
-    var results: [String:Any]!
+    var results: [String:Any] = [:]
     
     override func viewDidLoad() {
         super.viewDidLoad()
