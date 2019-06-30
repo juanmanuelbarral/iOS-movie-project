@@ -38,7 +38,6 @@ class ResultsViewController: UIViewController {
     }
     
     @IBAction func goToPerson(_ sender: Any) {
-        performSegue(withIdentifier: "fromResultsToPerson", sender: nil)
         apiManager.getDetailsPerson(personId: 1001657) { (person, error) in
             if let person = person {
                 self.segueElement = person
