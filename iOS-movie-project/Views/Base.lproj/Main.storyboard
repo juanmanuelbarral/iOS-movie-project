@@ -112,20 +112,21 @@
                                 <rect key="frame" x="0.0" y="79" width="414" height="646"/>
                                 <color key="backgroundColor" name="Background"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="collectionRow" rowHeight="50" id="i2w-uR-3XH" customClass="CollectionRowTableViewCell" customModule="iOS_movie_project" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="50"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="collectionRow" rowHeight="122" id="i2w-uR-3XH" customClass="CollectionRowTableViewCell" customModule="iOS_movie_project" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="122"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="i2w-uR-3XH" id="7TI-cy-rm6">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="49.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="121.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="aa5-CK-s2X">
-                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="49.5"/>
-                                                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="qJ3-L3-eZy">
+                                                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="aa5-CK-s2X">
+                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="121.5"/>
+                                                    <color key="backgroundColor" name="Background"/>
+                                                    <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="qJ3-L3-eZy">
                                                         <size key="itemSize" width="50" height="50"/>
                                                         <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                                         <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                        <inset key="sectionInset" minX="15" minY="10" maxX="15" maxY="35"/>
                                                     </collectionViewFlowLayout>
                                                     <cells/>
                                                 </collectionView>
@@ -159,6 +160,7 @@
                         <viewLayoutGuide key="safeArea" id="eaa-f9-MGA"/>
                     </view>
                     <connections>
+                        <outlet property="resultsTableView" destination="Knl-Hv-lWY" id="lEM-dw-m8a"/>
                         <segue destination="qzY-5C-RqA" kind="show" identifier="fromResultsToMovie" id="TWr-fy-rwd"/>
                         <segue destination="CmM-Bk-lts" kind="show" identifier="fromResultsToPerson" id="KVj-YY-jRm"/>
                     </connections>

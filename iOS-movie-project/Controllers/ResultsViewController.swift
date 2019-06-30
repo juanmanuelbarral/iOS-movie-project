@@ -10,13 +10,20 @@ import UIKit
 
 class ResultsViewController: UIViewController {
 
+    @IBOutlet weak var resultsTableView: UITableView!
+    
     let apiManager = ApiManager.sharedInstance
-    var results: [String:Any] = [:]
+    let collectionRowTopConstraint: Int = 10
+    let collectionRowBottomConstraint: Int = 35
+    var results: [String:[Any]] = [:]
     var categories: [String] = []
     var segueElement: Any? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        resultsTableView.dataSource = self
+        resultsTableView.delegate = self
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -45,5 +52,65 @@ class ResultsViewController: UIViewController {
                 self.performSegue(withIdentifier: "fromResultsToPerson", sender: nil)
             }
         }
+    }
+}
+
+extension ResultsViewController: UITableViewDataSource {
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return categories.count
+    }
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return categories[section]
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1
+        
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "collectionRow") as! CollectionRowTableViewCell
+        let category = categories[indexPath.section]
+        switch category {
+        case "Movies":
+            let items = results[category] as! [MoviePreview]
+            cell.configRow(
+                items: items,
+                itemWidth: MovieViewCell.Size.width.rawValue,
+                itemHeight: MovieViewCell.Size.height.rawValue
+            )
+        case "People":
+            let items = results[category] as! [PersonPreview]
+            cell.configRow(
+                items: items,
+                itemWidth: PersonViewCell.Size.width.rawValue,
+                itemHeight: PersonViewCell.Size.heightWithoutSub.rawValue
+            )
+            
+        default:
+            print("Items out of type on category: \(category) - index: \(indexPath.section)")
+        }
+        return cell
+    }
+}
+
+extension ResultsViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        let category = categories[indexPath.section]
+        var height: Int {
+            switch category {
+            case "Movies":
+                return MovieViewCell.Size.height.rawValue
+            
+            case "People":
+                return PersonViewCell.Size.heightWithoutSub.rawValue
+            
+            default:
+                return 0
+            }
+        }
+        
+        return CGFloat(height + collectionRowTopConstraint + collectionRowBottomConstraint)
     }
 }

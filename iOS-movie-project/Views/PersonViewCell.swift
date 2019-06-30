@@ -26,6 +26,8 @@ class PersonViewCell: UICollectionViewCell {
         personProfile.layer.borderWidth = 2
         personProfile.layer.borderColor = UIColor(named: "Person")?.cgColor
         personProfile.layer.cornerRadius = CGFloat(20)
+        
+        subtitleLabel.isHidden = false
     }
 
     func configCell(personPreview: PersonPreview) {
@@ -39,7 +41,7 @@ class PersonViewCell: UICollectionViewCell {
         }
         
         personName.text = personPreview.name
-        subtitleLabel.removeFromSuperview()
+        subtitleLabel.isHidden = true
     }
     
     func configCell(castMember: CastMember) {

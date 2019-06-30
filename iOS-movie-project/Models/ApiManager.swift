@@ -20,7 +20,7 @@ class ApiManager {
     
     // MULTI SEARCH
     // https://api.themoviedb.org/3/search/multi?api_key=<<api_key>>&language=en-US&query=<<query>>
-    func performMultiSearch(query: String, onCompletion: @escaping ([String:Any]?, [String]?, Error?) -> Void) {
+    func performMultiSearch(query: String, onCompletion: @escaping ([String:[Any]]?, [String]?, Error?) -> Void) {
         let queryFormatted = query.replacingOccurrences(of: " ", with: "%20")
         let url = "\(ApiManager.Config.baseUrl.rawValue)/search/multi?api_key=\(ApiManager.Config.apiKey.rawValue)&language=\(ApiManager.Config.language.rawValue)&query=\(queryFormatted)"
         Alamofire.request(url).responseJSON { (response) in
@@ -47,7 +47,7 @@ class ApiManager {
                         print("Other type caught in the search of \(query)")
                     }
                 }
-                let returnDictionary: [String:Any] = [
+                let returnDictionary: [String:[Any]] = [
                     "Movies": movieResults,
                     "People": personResults
                 ]
