@@ -39,7 +39,7 @@ class PersonViewCell: UICollectionViewCell {
         }
         
         personName.text = personPreview.name
-        // add department to subtitle
+        subtitleLabel.removeFromSuperview()
     }
     
     func configCell(castMember: CastMember) {

@@ -14,6 +14,7 @@ class MoviePreview {
     var movieId: Int!
     var title: String!
     var posterPath: String?
+    var releaseDate: String?
     
     required init?(map: Map) {
         if map.JSON[Movie.Keys.movieId.rawValue] == nil { return nil }
@@ -26,5 +27,6 @@ extension MoviePreview: Mappable {
         movieId <- map[Movie.Keys.movieId.rawValue]
         title <- map[Movie.Keys.title.rawValue]
         posterPath <- map[Movie.Keys.posterPath.rawValue]
+        releaseDate <- map[Movie.Keys.releaseDate.rawValue]
     }
 }
