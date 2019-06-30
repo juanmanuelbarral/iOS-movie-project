@@ -76,4 +76,9 @@ extension MovieViewCell {
         case participationAsCast
         case participationAsCrew
     }
+    
+    enum Size: Int {
+        case width = 104
+        case height = 195
+    }
 }

@@ -135,15 +135,21 @@ extension MovieViewController: UICollectionViewDataSource {
 
 extension MovieViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        var width: Int
+        var height: Int
         switch collectionView {
         case self.castCollectionView:
-            return CGSize(width: 96, height: 136)
+            width = PersonViewCell.Size.width.rawValue
+            height = PersonViewCell.Size.heightWithSub.rawValue
             
         case self.similarMoviesCollectionView:
-            return CGSize(width: 104, height: 195)
+            width = MovieViewCell.Size.width.rawValue
+            height = MovieViewCell.Size.height.rawValue
             
         default:
-            return CGSize(width: 0, height: 0)
+            width = 0
+            height = 0
         }
+        return CGSize(width: width, height: height)
     }
 }

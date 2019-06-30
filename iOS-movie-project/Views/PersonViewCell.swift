@@ -77,4 +77,10 @@ extension PersonViewCell {
         case castMember
         case crewMember
     }
+    
+    enum Size: Int {
+        case width = 96
+        case heightWithSub = 136
+        case heightWithoutSub = 118
+    }
 }

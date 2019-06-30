@@ -52,13 +52,13 @@
                 <constraint firstItem="FUO-4K-lNW" firstAttribute="trailing" secondItem="QcP-rd-yXR" secondAttribute="trailing" id="vwk-23-wfs"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
-            <size key="customSize" width="96" height="141"/>
+            <size key="customSize" width="96" height="121"/>
             <connections>
                 <outlet property="personName" destination="QcP-rd-yXR" id="F95-jo-CzP"/>
                 <outlet property="personProfile" destination="wau-V6-AH1" id="1pg-c2-Edy"/>
                 <outlet property="subtitleLabel" destination="FUO-4K-lNW" id="gJj-07-FyO"/>
             </connections>
-            <point key="canvasLocation" x="47.826086956521742" y="46.540178571428569"/>
+            <point key="canvasLocation" x="47.826086956521742" y="39.508928571428569"/>
         </collectionViewCell>
     </objects>
 </document>
