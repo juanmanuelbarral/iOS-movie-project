@@ -20,7 +20,7 @@ class ApiManager {
     
     // MULTI SEARCH
     // https://api.themoviedb.org/3/search/multi?api_key=<<api_key>>&language=en-US&query=<<query>>
-    func performMultiSearch(query: String, onCompletion: @escaping ([String:Any]?, Error?) -> Void) {
+    func performMultiSearch(query: String, onCompletion: @escaping ([String:Any]?, [String]?, Error?) -> Void) {
         let queryFormatted = query.replacingOccurrences(of: " ", with: "%20")
         let url = "\(ApiManager.Config.baseUrl.rawValue)/search/multi?api_key=\(ApiManager.Config.apiKey.rawValue)&language=\(ApiManager.Config.language.rawValue)&query=\(queryFormatted)"
         Alamofire.request(url).responseJSON { (response) in
@@ -48,13 +48,15 @@ class ApiManager {
                     }
                 }
                 let returnDictionary: [String:Any] = [
-                    "movie": movieResults,
-                    "person": personResults
+                    "Movies": movieResults,
+                    "People": personResults
                 ]
-                onCompletion(returnDictionary, nil)
+                let returnCategories = ["Movies", "People"]
+                
+                onCompletion(returnDictionary, returnCategories, nil)
                 
             case .failure(let error):
-                onCompletion(nil, error)
+                onCompletion(nil, nil, error)
             }
         }
     }

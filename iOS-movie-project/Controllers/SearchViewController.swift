@@ -17,6 +17,7 @@ class SearchViewController: UIViewController {
     var searchIsActive: Bool = false
     var searchText: String = ""
     var segueResults: [String: Any] = [:]
+    var segueCategories: [String] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,14 +27,16 @@ class SearchViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let resultsVC = segue.destination as? ResultsViewController {
             resultsVC.results = self.segueResults
+            resultsVC.categories = self.segueCategories
         }
     }
     
     @IBAction func onTouchSearchButton(_ sender: Any) {
         if searchIsActive {
-            apiManager.performMultiSearch(query: searchText) { (results: [String : Any]?, error: Error?) in
+            apiManager.performMultiSearch(query: searchText) { (results: [String : Any]?, categories: [String]?, error: Error?) in
                 if let results = results {
                     self.segueResults = results
+                    self.segueCategories = categories!
                     self.performSegue(withIdentifier: "fromSearchToResults", sender: nil)
                 }
                 

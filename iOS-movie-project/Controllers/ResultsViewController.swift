@@ -12,6 +12,7 @@ class ResultsViewController: UIViewController {
 
     let apiManager = ApiManager.sharedInstance
     var results: [String:Any] = [:]
+    var categories: [String] = []
     var segueElement: Any? = nil
     
     override func viewDidLoad() {
