@@ -98,21 +98,27 @@ class MovieViewController: UIViewController {
 
 extension MovieViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if collectionView == self.castCollectionView {
+        switch collectionView {
+        case self.castCollectionView:
             return cast.count
-        } else if collectionView == self.similarMoviesCollectionView {
+            
+        case self.similarMoviesCollectionView:
             return similarMovies.count
-        } else {
+            
+        default:
             return 0
         }
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        if collectionView == self.castCollectionView {
+        switch collectionView {
+        case self.castCollectionView:
             return cellForCastCollection(collectionView, indexPath)
-        } else if collectionView == self.similarMoviesCollectionView {
+            
+        case self.similarMoviesCollectionView:
             return cellForSimilarMoviesCollection(collectionView, indexPath)
-        } else {
+            
+        default:
             return UICollectionViewCell()
         }
     }
