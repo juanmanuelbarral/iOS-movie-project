@@ -12,9 +12,12 @@ class ResultsViewController: UIViewController {
 
     @IBOutlet weak var resultsTableView: UITableView!
     
-    let apiManager = ApiManager.sharedInstance
+    let headerHeight: Int = 30
+    let firstHeaderExtra: Int = 40
     let collectionRowTopConstraint: Int = 10
     let collectionRowBottomConstraint: Int = 35
+    
+    let apiManager = ApiManager.sharedInstance
     var results: [String:[Any]] = [:]
     var categories: [String] = []
     var segueElement: Any? = nil
@@ -60,8 +63,23 @@ extension ResultsViewController: UITableViewDataSource {
         return categories.count
     }
     
-    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return categories[section]
+//    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+//        return categories[section]
+//    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        if section == 0 {
+            return CGFloat(headerHeight + firstHeaderExtra)
+        } else {
+            return CGFloat(headerHeight)
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let header = Bundle.main.loadNibNamed("SectionHeaderView", owner: self, options: nil)?.first as! SectionHeaderView
+        let titleForSection = categories[section]
+        header.sectionTitleLabel.text = titleForSection
+        return header
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
