@@ -119,8 +119,8 @@ extension MovieViewController: UICollectionViewDataSource {
     
     private func cellForCastCollection(_ collectionView: UICollectionView, _ indexPath: IndexPath) -> PersonViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "personCell", for: indexPath) as! PersonViewCell
-        // Hacer que reciba un cast memeber
-//        cell.configCell()
+        let item = cast[indexPath.row]
+        cell.configCell(castMember: item)
         return cell
     }
     
@@ -137,10 +137,10 @@ extension MovieViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         switch collectionView {
         case self.castCollectionView:
-            return CGSize(width: 96, height: 120)
+            return CGSize(width: 96, height: 136)
             
         case self.similarMoviesCollectionView:
-            return CGSize(width: 104, height: 181)
+            return CGSize(width: 104, height: 195)
             
         default:
             return CGSize(width: 0, height: 0)

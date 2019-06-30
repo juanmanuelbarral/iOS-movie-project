@@ -13,13 +13,13 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="" id="gTV-IL-0wX" customClass="MovieViewCell" customModule="iOS_movie_project" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="104" height="181"/>
+            <rect key="frame" x="0.0" y="0.0" width="104" height="195"/>
             <autoresizingMask key="autoresizingMask" heightSizable="YES"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                <rect key="frame" x="0.0" y="0.0" width="104" height="181"/>
+                <rect key="frame" x="0.0" y="0.0" width="104" height="195"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="wEJ-95-HBc">
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="wEJ-95-HBc">
                         <rect key="frame" x="2" y="2" width="100" height="150"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="150" id="m3D-fp-Ij8"/>
@@ -31,23 +31,33 @@
                         <color key="textColor" red="0.97254901960784312" green="0.97254901960784312" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cq1-93-wgr">
+                        <rect key="frame" x="2" y="176.5" width="100" height="14"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                        <color key="textColor" red="0.97254901960784312" green="0.97254901960784312" blue="1" alpha="0.75" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
             </view>
             <constraints>
                 <constraint firstItem="wEJ-95-HBc" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="2" id="88c-Pt-m45"/>
+                <constraint firstItem="Cq1-93-wgr" firstAttribute="trailing" secondItem="PLL-rv-OZ3" secondAttribute="trailing" id="8Zi-sg-LlC"/>
                 <constraint firstItem="PLL-rv-OZ3" firstAttribute="leading" secondItem="wEJ-95-HBc" secondAttribute="leading" id="BdV-mw-Bkr"/>
                 <constraint firstItem="PLL-rv-OZ3" firstAttribute="top" secondItem="wEJ-95-HBc" secondAttribute="bottom" constant="7" id="JX6-mR-9Na"/>
                 <constraint firstItem="PLL-rv-OZ3" firstAttribute="trailing" secondItem="wEJ-95-HBc" secondAttribute="trailing" id="RBl-P3-Iqg"/>
+                <constraint firstItem="Cq1-93-wgr" firstAttribute="top" secondItem="PLL-rv-OZ3" secondAttribute="bottom" constant="3" id="VOv-7L-eif"/>
                 <constraint firstAttribute="trailing" secondItem="wEJ-95-HBc" secondAttribute="trailing" constant="2" id="eTm-0o-RM1"/>
                 <constraint firstItem="wEJ-95-HBc" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="2" id="nKH-h4-yGJ"/>
+                <constraint firstItem="Cq1-93-wgr" firstAttribute="leading" secondItem="PLL-rv-OZ3" secondAttribute="leading" id="th4-T3-mkP"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="EKE-tH-hUy"/>
-            <size key="customSize" width="219" height="388"/>
+            <size key="customSize" width="219" height="403"/>
             <connections>
                 <outlet property="moviePoster" destination="wEJ-95-HBc" id="XUy-xn-JvA"/>
                 <outlet property="movieTitle" destination="PLL-rv-OZ3" id="yYH-xr-uvn"/>
+                <outlet property="subtitleLabel" destination="Cq1-93-wgr" id="T7i-b4-dyR"/>
             </connections>
-            <point key="canvasLocation" x="113.04347826086958" y="85.714285714285708"/>
+            <point key="canvasLocation" x="113.04347826086958" y="90.401785714285708"/>
         </collectionViewCell>
     </objects>
 </document>

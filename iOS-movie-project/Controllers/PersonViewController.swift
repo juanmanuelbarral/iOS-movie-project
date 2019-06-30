@@ -21,6 +21,7 @@ class PersonViewController: UIViewController {
     @IBOutlet weak var biographyLabel: UILabel!
     @IBOutlet weak var participationMoviesCollectionView: UICollectionView!
     
+    var apiManager = ApiManager.sharedInstance
     var person: Person!
     var participationMovies: [Participation] = []
 
@@ -36,6 +37,7 @@ class PersonViewController: UIViewController {
         
         loadImages()
         loadInfo()
+        loadMoviesParticipation()
     }
     
     private func loadImages() {
@@ -56,7 +58,20 @@ class PersonViewController: UIViewController {
     }
     
     private func loadMoviesParticipation() {
-        
+        apiManager.getMovieCreditsPerson(personId: person.personId) { (response: [Participation.Role : [Participation]]?, error) in
+            if let response = response {
+                let cast = response[Participation.Role.cast] as! [ParticipationAsCast]
+                let crew = response[Participation.Role.crew] as! [ParticipationAsCrew]
+                self.participationMovies.append(contentsOf: cast)
+                self.participationMovies.append(contentsOf: crew)
+                //maybe different sections?
+                self.participationMoviesCollectionView.reloadData()
+            }
+            
+            if error != nil {
+                // TODO: do something when there is an error
+            }
+        }
     }
 }
 
@@ -85,7 +100,12 @@ extension PersonViewController: UICollectionViewDataSource {
     private func cellForParticipationMovieCollection(_ collectionView: UICollectionView, _ indexPath: IndexPath) -> MovieViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "movieParticipationCell", for: indexPath) as! MovieViewCell
         let item = participationMovies[indexPath.row]
-//        cell.configCell(moviePreview: T##MoviePreview)
+
+        if let participationCast = item as? ParticipationAsCast {
+            cell.configCell(participationCast: participationCast)
+        } else if let participationCrew = item as? ParticipationAsCrew {
+            cell.configCell(participationCrew: participationCrew)
+        }
         return cell
     }
 }
@@ -95,7 +115,7 @@ extension PersonViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         switch collectionView {
         case self.participationMoviesCollectionView:
-            return CGSize(width: 104, height: 181)
+            return CGSize(width: 104, height: 195)
             
         default:
             return CGSize(width: 0, height: 0)

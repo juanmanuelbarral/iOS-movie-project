@@ -13,8 +13,12 @@ class MovieViewCell: UICollectionViewCell {
 
     @IBOutlet weak var moviePoster: UIImageView!
     @IBOutlet weak var movieTitle: UILabel!
+    @IBOutlet weak var subtitleLabel: UILabel!
     
-    var moviePreview: MoviePreview!
+    var category: Category!
+    var moviePreview: MoviePreview? = nil
+    var cast: ParticipationAsCast? = nil
+    var crew: ParticipationAsCrew? = nil
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -24,6 +28,7 @@ class MovieViewCell: UICollectionViewCell {
     }
     
     func configCell(moviePreview: MoviePreview) {
+        self.category = Category.moviePreview
         self.moviePreview = moviePreview
         
         if let posterPath = moviePreview.posterPath {
@@ -33,5 +38,42 @@ class MovieViewCell: UICollectionViewCell {
         }
         
         movieTitle.text = moviePreview.title
+        // year
+    }
+    
+    func configCell(participationCast: ParticipationAsCast) {
+        self.category = Category.participationAsCast
+        self.cast = participationCast
+        
+        if let posterPath = participationCast.posterPath {
+            moviePoster.kf.setImage(with: URL(string: "\(ApiManager.Images.baseUrl.rawValue)\(ApiManager.Images.posterSize.rawValue)\(posterPath)"))
+        } else {
+            moviePoster.kf.setImage(with: URL(string: ApiManager.Images.imageNotFound.rawValue))
+        }
+        
+        movieTitle.text = participationCast.title
+        subtitleLabel.text = participationCast.character
+    }
+    
+    func configCell(participationCrew: ParticipationAsCrew) {
+        self.category = Category.participationAsCrew
+        self.crew = participationCrew
+        
+        if let posterPath = participationCrew.posterPath {
+            moviePoster.kf.setImage(with: URL(string: "\(ApiManager.Images.baseUrl.rawValue)\(ApiManager.Images.posterSize.rawValue)\(posterPath)"))
+        } else {
+            moviePoster.kf.setImage(with: URL(string: ApiManager.Images.imageNotFound.rawValue))
+        }
+        
+        movieTitle.text = participationCrew.title
+        subtitleLabel.text = participationCrew.job
+    }
+}
+
+extension MovieViewCell {
+    enum Category {
+        case moviePreview
+        case participationAsCast
+        case participationAsCrew
     }
 }

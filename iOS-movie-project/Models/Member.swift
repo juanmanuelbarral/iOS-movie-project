@@ -13,14 +13,12 @@ class Member: Mappable {
     
     var mediaId: Int!
     var personId: Int!
-    var name: String?
+    var name: String!
     var profilePath: String?
     
     required init?(map: Map) {
         if map.JSON[Keys.personId.rawValue] == nil { return nil }
-        if map.JSON[Keys.profilePath.rawValue] == nil {
-            profilePath = ApiManager.Images.imageNotFound.rawValue
-        }
+        if map.JSON[Keys.name.rawValue] == nil { return nil }
     }
     
     func mapping(map: Map) {
