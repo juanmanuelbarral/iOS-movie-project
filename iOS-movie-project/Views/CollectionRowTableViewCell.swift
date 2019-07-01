@@ -12,6 +12,7 @@ class CollectionRowTableViewCell: UITableViewCell {
 
     @IBOutlet weak var collectionViewRow: UICollectionView!
     
+    var actionsDelegate: CollectionRowProtocol?
     var category: Category!
     var items: [Any] = []
     var width: Int = 0
@@ -22,6 +23,8 @@ class CollectionRowTableViewCell: UITableViewCell {
         
         collectionViewRow.dataSource = self
         collectionViewRow.delegate = self
+        
+        self.selectionStyle = UITableViewCell.SelectionStyle.none
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -82,6 +85,20 @@ extension CollectionRowTableViewCell: UICollectionViewDataSource {
 extension CollectionRowTableViewCell: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: self.width, height: self.height)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if let delegate = actionsDelegate {
+            switch category! {
+            case Category.movie:
+                let movie = items[indexPath.row] as! MoviePreview
+                delegate.onMovieNavigation(movieId: movie.movieId!)
+                
+            case Category.person:
+                let person = items[indexPath.row] as! PersonPreview
+                delegate.onPersonNavigation(personId: person.personId!)
+            }
+        }
     }
 }
 

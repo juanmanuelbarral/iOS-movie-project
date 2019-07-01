@@ -100,37 +100,23 @@
                                     <constraint firstAttribute="height" constant="75" id="YJn-y3-WlV"/>
                                 </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vij-8p-gV9">
-                                <rect key="frame" x="93" y="19" width="65" height="40"/>
-                                <color key="backgroundColor" name="Text"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="23"/>
-                                <state key="normal" title="Movie"/>
-                                <connections>
-                                    <action selector="goToMovie:" destination="924-Vk-m7x" eventType="touchUpInside" id="JMl-nI-I13"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MIr-N2-iwc">
-                                <rect key="frame" x="232" y="19" width="76" height="40"/>
-                                <color key="backgroundColor" name="Text"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="23"/>
-                                <state key="normal" title="Person"/>
-                                <connections>
-                                    <action selector="goToPerson:" destination="924-Vk-m7x" eventType="touchUpInside" id="uNd-qL-jBk"/>
-                                </connections>
-                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Results" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u6J-Rc-dv3">
+                                <rect key="frame" x="148" y="9.5" width="118.5" height="41"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="34"/>
+                                <color key="textColor" name="Title text"/>
+                                <nil key="highlightedColor"/>
+                                <size key="shadowOffset" width="1" height="2"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" name="Background"/>
                         <constraints>
-                            <constraint firstItem="vij-8p-gV9" firstAttribute="leading" secondItem="eaa-f9-MGA" secondAttribute="leading" constant="93" id="C9G-mV-Nm0"/>
                             <constraint firstItem="eaa-f9-MGA" firstAttribute="bottom" secondItem="Knl-Hv-lWY" secondAttribute="bottom" id="CBc-WK-ihr"/>
                             <constraint firstItem="hpj-V6-eFN" firstAttribute="trailing" secondItem="eaa-f9-MGA" secondAttribute="trailing" id="CV7-Y7-6LK"/>
-                            <constraint firstItem="vij-8p-gV9" firstAttribute="baseline" secondItem="MIr-N2-iwc" secondAttribute="baseline" id="FcU-e1-xbr"/>
-                            <constraint firstItem="vij-8p-gV9" firstAttribute="top" secondItem="eaa-f9-MGA" secondAttribute="top" constant="19" id="IHW-ee-Goy"/>
+                            <constraint firstItem="u6J-Rc-dv3" firstAttribute="centerY" secondItem="hpj-V6-eFN" secondAttribute="centerY" multiplier="0.8" id="FLo-DA-Q1N"/>
                             <constraint firstItem="hpj-V6-eFN" firstAttribute="top" secondItem="eaa-f9-MGA" secondAttribute="top" id="Obq-e6-UwP"/>
                             <constraint firstItem="eaa-f9-MGA" firstAttribute="trailing" secondItem="Knl-Hv-lWY" secondAttribute="trailing" id="QDX-Jy-XqO"/>
-                            <constraint firstItem="MIr-N2-iwc" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="vij-8p-gV9" secondAttribute="trailing" constant="8" symbolic="YES" id="T3V-0B-6c4"/>
                             <constraint firstItem="Knl-Hv-lWY" firstAttribute="top" secondItem="hpj-V6-eFN" secondAttribute="bottom" constant="-30" id="VWg-Y5-FG3"/>
-                            <constraint firstItem="eaa-f9-MGA" firstAttribute="trailing" secondItem="MIr-N2-iwc" secondAttribute="trailing" constant="106" id="ZzX-iU-iaw"/>
+                            <constraint firstItem="u6J-Rc-dv3" firstAttribute="centerX" secondItem="6Vg-Un-THM" secondAttribute="centerX" id="c20-2c-pFK"/>
                             <constraint firstItem="Knl-Hv-lWY" firstAttribute="leading" secondItem="eaa-f9-MGA" secondAttribute="leading" id="k6d-uc-Nhx"/>
                             <constraint firstItem="hpj-V6-eFN" firstAttribute="leading" secondItem="eaa-f9-MGA" secondAttribute="leading" id="vbd-mQ-FMe"/>
                         </constraints>
@@ -151,11 +137,11 @@
             <objects>
                 <viewController storyboardIdentifier="MovieViewController" id="qzY-5C-RqA" customClass="MovieViewController" customModule="iOS_movie_project" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="pX2-tp-Vg0">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="1200"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="1029"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r0P-ea-NTZ">
-                                <rect key="frame" x="0.0" y="44" width="414" height="1122"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="1029"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="r2g-XI-OQS" userLabel="Content View">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="903"/>
@@ -396,11 +382,11 @@
             <objects>
                 <viewController id="CmM-Bk-lts" customClass="PersonViewController" customModule="iOS_movie_project" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8v5-cF-ixu">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="1100"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="929"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4oJ-eF-Y9d">
-                                <rect key="frame" x="0.0" y="44" width="414" height="1022"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="929"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zR9-TS-3v2" userLabel="Content View">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="898"/>
@@ -580,7 +566,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="enq-ah-xoX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4462.3188405797109" y="1664.7321428571429"/>
+            <point key="canvasLocation" x="3713" y="1708"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="Zum-Dm-aI4">
@@ -630,7 +616,7 @@
         </namedColor>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="hxM-8o-vns"/>
+        <segue reference="KVj-YY-jRm"/>
         <segue reference="vEi-E3-g47"/>
     </inferredMetricsTieBreakers>
 </document>

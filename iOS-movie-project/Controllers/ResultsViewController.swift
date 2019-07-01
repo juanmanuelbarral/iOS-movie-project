@@ -31,30 +31,12 @@ class ResultsViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let movieVC = segue.destination as? MovieViewController {
-            movieVC.movie = (segueItem as! Movie)
+        if let movieViewController = segue.destination as? MovieViewController {
+            movieViewController.movie = (segueItem as! Movie)
         }
         
-        if let personVC = segue.destination as? PersonViewController {
-            personVC.person = (segueItem as! Person)
-        }
-    }
-    
-    @IBAction func goToMovie(_ sender: Any) {
-        apiManager.getDetailsMovie(movieId: 320288) { (movie, error) in
-            if let movie = movie {
-                self.segueItem = movie
-                self.performSegue(withIdentifier: "fromResultsToMovie", sender: nil)
-            }
-        }
-    }
-    
-    @IBAction func goToPerson(_ sender: Any) {
-        apiManager.getDetailsPerson(personId: 1001657) { (person, error) in
-            if let person = person {
-                self.segueItem = person
-                self.performSegue(withIdentifier: "fromResultsToPerson", sender: nil)
-            }
+        if let personViewController = segue.destination as? PersonViewController {
+            personViewController.person = (segueItem as! Person)
         }
     }
 }
@@ -90,6 +72,7 @@ extension ResultsViewController: UITableViewDataSource {
         switch category {
         case "Movies":
             let items = results[category] as! [MoviePreview]
+            cell.actionsDelegate = self
             cell.configRow(
                 items: items,
                 itemWidth: MovieViewCell.Size.width.rawValue,
@@ -98,6 +81,7 @@ extension ResultsViewController: UITableViewDataSource {
         
         case "People":
             let items = results[category] as! [PersonPreview]
+            cell.actionsDelegate = self
             cell.configRow(
                 items: items,
                 itemWidth: PersonViewCell.Size.width.rawValue,
@@ -128,5 +112,41 @@ extension ResultsViewController: UITableViewDelegate {
         }
         
         return CGFloat(height + collectionRowTopConstraint + collectionRowBottomConstraint)
+    }
+}
+
+extension ResultsViewController: CollectionRowProtocol {
+    func onMovieNavigation(movieId: Int) {
+        apiManager.getDetailsMovie(movieId: movieId) { (movie, error) in
+            if let movie = movie {
+                self.segueItem = movie
+                self.performSegue(withIdentifier: "fromResultsToMovie", sender: nil)
+            }
+            
+            if let error = error {
+                let alert = self.messageAlert(
+                    title: "There was a problem with opening this movie",
+                    message: "Check your connection to the internet and try again.\n\(error.localizedDescription)"
+                )
+                self.present(alert, animated: true, completion: nil)
+            }
+        }
+    }
+    
+    func onPersonNavigation(personId: Int) {
+        apiManager.getDetailsPerson(personId: personId) { (person, error) in
+            if let person = person {
+                self.segueItem = person
+                self.performSegue(withIdentifier: "fromResultsToPerson", sender: nil)
+            }
+            
+            if let error = error {
+                let alert = self.messageAlert(
+                    title: "There was a problem with opening this person's information",
+                    message: "Check your connection to the internet and try again.\n\(error.localizedDescription)"
+                )
+                self.present(alert, animated: true, completion: nil)
+            }
+        }
     }
 }
