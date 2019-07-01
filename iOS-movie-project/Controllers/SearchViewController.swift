@@ -25,9 +25,9 @@ class SearchViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let resultsVC = segue.destination as? ResultsViewController {
-            resultsVC.results = self.segueResults
-            resultsVC.categories = self.segueCategories
+        if let resultsViewController = segue.destination as? ResultsViewController {
+            resultsViewController.results = self.segueResults
+            resultsViewController.categories = self.segueCategories
         }
     }
     
