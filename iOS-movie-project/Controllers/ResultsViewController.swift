@@ -20,29 +20,30 @@ class ResultsViewController: UIViewController {
     let apiManager = ApiManager.sharedInstance
     var results: [String:[Any]] = [:]
     var categories: [String] = []
-    var segueElement: Any? = nil
+    var segueItem: Any? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         resultsTableView.dataSource = self
         resultsTableView.delegate = self
+        resultsTableView.register(UINib(nibName: "CollectionRowTableViewCell", bundle: nil), forCellReuseIdentifier: "collectionRow")
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let movieVC = segue.destination as? MovieViewController {
-            movieVC.movie = (segueElement as! Movie)
+            movieVC.movie = (segueItem as! Movie)
         }
         
         if let personVC = segue.destination as? PersonViewController {
-            personVC.person = (segueElement as! Person)
+            personVC.person = (segueItem as! Person)
         }
     }
     
     @IBAction func goToMovie(_ sender: Any) {
         apiManager.getDetailsMovie(movieId: 320288) { (movie, error) in
             if let movie = movie {
-                self.segueElement = movie
+                self.segueItem = movie
                 self.performSegue(withIdentifier: "fromResultsToMovie", sender: nil)
             }
         }
@@ -51,7 +52,7 @@ class ResultsViewController: UIViewController {
     @IBAction func goToPerson(_ sender: Any) {
         apiManager.getDetailsPerson(personId: 1001657) { (person, error) in
             if let person = person {
-                self.segueElement = person
+                self.segueItem = person
                 self.performSegue(withIdentifier: "fromResultsToPerson", sender: nil)
             }
         }
@@ -62,10 +63,6 @@ extension ResultsViewController: UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
         return categories.count
     }
-    
-//    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-//        return categories[section]
-//    }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         if section == 0 {
@@ -98,6 +95,7 @@ extension ResultsViewController: UITableViewDataSource {
                 itemWidth: MovieViewCell.Size.width.rawValue,
                 itemHeight: MovieViewCell.Size.height.rawValue
             )
+        
         case "People":
             let items = results[category] as! [PersonPreview]
             cell.configRow(
