@@ -58,8 +58,8 @@ class PersonViewController: UIViewController {
     private func loadInfo() {
         nameLabel.text = person.name
         knownForLabel.text = person.department ?? ""
-        bornDateLabel.text = person.birthday ?? "-"
-        diedDateLabel.text = person.deathday ?? "-"
+        bornDateLabel.text = (person.birthday != nil) ? "\(person.birthday!.dateToString(dayFormat: DateFormatter.Style.long, timeFormat: DateFormatter.Style.none)!)" : "-"
+        diedDateLabel.text = (person.deathday != nil) ? "\(person.deathday!.dateToString(dayFormat: DateFormatter.Style.long, timeFormat: DateFormatter.Style.none)!)" : "-"
         fromPlaceLabel.text = person.placeOfBirth ?? "-"
         biographyLabel.text = person.biography ?? "N/A"
     }

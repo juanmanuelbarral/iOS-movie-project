@@ -71,8 +71,14 @@ class MovieViewController: UIViewController {
     private func loadInfo() {
         movieTitle.text = movie.title
         overviewText.text = movie.overview ?? "N/A"
-        year.text = movie.releaseDate ?? "N/A"
-        runtime.text = "\(movie.runtime ?? 0)"
+        year.text = (movie.releaseDate != nil) ? "\(movie.releaseDate!.getYear())" : "N/A"
+        if let runtime = movie.runtime {
+            let hours: Int = runtime / 60
+            let minutes: Int = runtime % 60
+            self.runtime.text = "\(hours)h \(minutes)'"
+        } else {
+            self.runtime.text = "N/A"
+        }
     }
     
     private func loadCredits() {

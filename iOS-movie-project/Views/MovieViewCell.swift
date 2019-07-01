@@ -38,7 +38,7 @@ class MovieViewCell: UICollectionViewCell {
         }
         
         movieTitle.text = moviePreview.title
-        subtitleLabel.text = moviePreview.releaseDate ?? "-"
+        subtitleLabel.text = (moviePreview.releaseDate != nil) ? "\(moviePreview.releaseDate!.getYear())" : "N/A"
     }
     
     func configCell(participationCast: ParticipationAsCast) {

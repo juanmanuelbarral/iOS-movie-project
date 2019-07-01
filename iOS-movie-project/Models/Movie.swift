@@ -15,7 +15,7 @@ class Movie: Mappable {
     var title: String!
     var posterPath: String!
     var backdropPath: String?
-    var releaseDate: String?
+    var releaseDate: Date?
     var runtime: Int?
     var genres: [String]?
     var overview: String?
@@ -31,7 +31,7 @@ class Movie: Mappable {
         title <- map[Keys.title.rawValue]
         posterPath <- map[Keys.posterPath.rawValue]
         backdropPath <- map[Keys.backdropPath.rawValue]
-        releaseDate <- map[Keys.releaseDate.rawValue]
+        releaseDate <- (map[Keys.releaseDate.rawValue], CustomReleaseDateTransform())
         runtime <- map[Keys.runtime.rawValue]
 //        genres <- map[Keys.genres.rawValue]
         overview <- map[Keys.overview.rawValue]

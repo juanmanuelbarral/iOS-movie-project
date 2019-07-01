@@ -19,13 +19,14 @@
 		922D7BAE22B3284F005CFF4F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 922D7BAD22B3284F005CFF4F /* Assets.xcassets */; };
 		922D7BB122B3284F005CFF4F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 922D7BAF22B3284F005CFF4F /* LaunchScreen.storyboard */; };
 		922D7BBD22B32E5A005CFF4F /* ApiManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 922D7BBC22B32E5A005CFF4F /* ApiManager.swift */; };
-		922D7BC222B33254005CFF4F /* ModelManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 922D7BC122B33254005CFF4F /* ModelManager.swift */; };
 		92437C3222C44C9A00917AF9 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92437C3122C44C9A00917AF9 /* UIViewController.swift */; };
 		9250B8B822C9682200A8F912 /* SectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9250B8B622C9682200A8F912 /* SectionHeaderView.swift */; };
 		9250B8B922C9682200A8F912 /* SectionHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9250B8B722C9682200A8F912 /* SectionHeaderView.xib */; };
 		9250B8C022C97C5900A8F912 /* CollectionRowTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9250B8BE22C97C5900A8F912 /* CollectionRowTableViewCell.swift */; };
 		9250B8C122C97C5900A8F912 /* CollectionRowTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9250B8BF22C97C5900A8F912 /* CollectionRowTableViewCell.xib */; };
 		9250B8C322C9AF0600A8F912 /* CollectionRowProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9250B8C222C9AF0600A8F912 /* CollectionRowProtocol.swift */; };
+		9250B8C522C9BB7900A8F912 /* CustomReleaseDateTransform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9250B8C422C9BB7900A8F912 /* CustomReleaseDateTransform.swift */; };
+		9250B8C722C9BFD000A8F912 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9250B8C622C9BFD000A8F912 /* Date.swift */; };
 		9257B78822BC56A600DAFFE4 /* Member.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9257B78722BC56A600DAFFE4 /* Member.swift */; };
 		9257B78A22BC56B800DAFFE4 /* CrewMember.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9257B78922BC56B800DAFFE4 /* CrewMember.swift */; };
 		9257B78C22BC56C800DAFFE4 /* Participation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9257B78B22BC56C800DAFFE4 /* Participation.swift */; };
@@ -59,13 +60,14 @@
 		922D7BB022B3284F005CFF4F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		922D7BB222B3284F005CFF4F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		922D7BBC22B32E5A005CFF4F /* ApiManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiManager.swift; sourceTree = "<group>"; };
-		922D7BC122B33254005CFF4F /* ModelManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelManager.swift; sourceTree = "<group>"; };
 		92437C3122C44C9A00917AF9 /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
 		9250B8B622C9682200A8F912 /* SectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionHeaderView.swift; sourceTree = "<group>"; };
 		9250B8B722C9682200A8F912 /* SectionHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SectionHeaderView.xib; sourceTree = "<group>"; };
 		9250B8BE22C97C5900A8F912 /* CollectionRowTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionRowTableViewCell.swift; sourceTree = "<group>"; };
 		9250B8BF22C97C5900A8F912 /* CollectionRowTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CollectionRowTableViewCell.xib; sourceTree = "<group>"; };
 		9250B8C222C9AF0600A8F912 /* CollectionRowProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionRowProtocol.swift; sourceTree = "<group>"; };
+		9250B8C422C9BB7900A8F912 /* CustomReleaseDateTransform.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomReleaseDateTransform.swift; sourceTree = "<group>"; };
+		9250B8C622C9BFD000A8F912 /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		9257B78722BC56A600DAFFE4 /* Member.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Member.swift; sourceTree = "<group>"; };
 		9257B78922BC56B800DAFFE4 /* CrewMember.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrewMember.swift; sourceTree = "<group>"; };
 		9257B78B22BC56C800DAFFE4 /* Participation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Participation.swift; sourceTree = "<group>"; };
@@ -180,7 +182,6 @@
 				928D042222B72A1100F18893 /* CastMember.swift */,
 				9257B78922BC56B800DAFFE4 /* CrewMember.swift */,
 				9257B78722BC56A600DAFFE4 /* Member.swift */,
-				922D7BC122B33254005CFF4F /* ModelManager.swift */,
 				928D041E22B60E3400F18893 /* Movie.swift */,
 				928D042022B7283800F18893 /* MoviePreview.swift */,
 				9257B78B22BC56C800DAFFE4 /* Participation.swift */,
@@ -205,6 +206,8 @@
 			children = (
 				920D33F222BEDCCC0090AA3A /* UIColor.swift */,
 				92437C3122C44C9A00917AF9 /* UIViewController.swift */,
+				9250B8C422C9BB7900A8F912 /* CustomReleaseDateTransform.swift */,
+				9250B8C622C9BFD000A8F912 /* Date.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -342,15 +345,16 @@
 				928D042322B72A1100F18893 /* CastMember.swift in Sources */,
 				920D33F322BEDCCC0090AA3A /* UIColor.swift in Sources */,
 				928D041D22B60D4A00F18893 /* Person.swift in Sources */,
+				9250B8C722C9BFD000A8F912 /* Date.swift in Sources */,
 				922D7BBD22B32E5A005CFF4F /* ApiManager.swift in Sources */,
 				9250B8C022C97C5900A8F912 /* CollectionRowTableViewCell.swift in Sources */,
-				922D7BC222B33254005CFF4F /* ModelManager.swift in Sources */,
 				922D7BA722B3284C005CFF4F /* AppDelegate.swift in Sources */,
 				92437C3222C44C9A00917AF9 /* UIViewController.swift in Sources */,
 				9257B78822BC56A600DAFFE4 /* Member.swift in Sources */,
 				9224F60522C1CF7A00592848 /* PersonViewController.swift in Sources */,
 				928D042522B72AF700F18893 /* ParticipationAsCast.swift in Sources */,
 				9250B8B822C9682200A8F912 /* SectionHeaderView.swift in Sources */,
+				9250B8C522C9BB7900A8F912 /* CustomReleaseDateTransform.swift in Sources */,
 				9250B8C322C9AF0600A8F912 /* CollectionRowProtocol.swift in Sources */,
 				9257B78C22BC56C800DAFFE4 /* Participation.swift in Sources */,
 				92D1948522C2FD26001EF117 /* PopularViewController.swift in Sources */,

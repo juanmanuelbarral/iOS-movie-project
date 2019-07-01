@@ -14,8 +14,8 @@ class Person: Mappable {
     var personId: Int!
     var name: String!
     var profilePath: String?
-    var birthday: String?
-    var deathday: String?
+    var birthday: Date?
+    var deathday: Date?
     var department: String?
     var biography: String?
     var placeOfBirth: String?
@@ -29,8 +29,8 @@ class Person: Mappable {
     func mapping(map: Map) {
         personId <- map[Keys.personId.rawValue]
         name <- map[Keys.name.rawValue]
-        birthday <- map[Keys.birthday.rawValue]
-        deathday <- map[Keys.deathday.rawValue]
+        birthday <- (map[Keys.birthday.rawValue], CustomReleaseDateTransform())
+        deathday <- (map[Keys.deathday.rawValue], CustomReleaseDateTransform())
         department <- map[Keys.department.rawValue]
         biography <- map[Keys.biography.rawValue]
         placeOfBirth <- map[Keys.placeOfBirth.rawValue]
