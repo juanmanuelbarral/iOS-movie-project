@@ -12,16 +12,16 @@ class PopularViewController: UIViewController {
     
     @IBOutlet weak var popularTableView: UITableView!
     
-    let headerHeight: Int = 30
-    let firstHeaderExtra: Int = 40
-    let minSpacing: Int = 10
-    let collectionRowTopConstraint: Int = 10
-    let collectionRowBottomConstraint: Int = 35
+    private let headerHeight: Int = 30
+    private let firstHeaderExtra: Int = 40
+    private let minSpacing: Int = 10
+    private let collectionRowTopConstraint: Int = 10
+    private let collectionRowBottomConstraint: Int = 35
     
-    let apiManager = ApiManager.sharedInstance
+    private let apiManager = ApiManager.sharedInstance
     let categories = ["Movies"]
     var popularMovies: [MoviePreview] = []
-    var segueElement: Any? = nil
+    private var segueItem: Any? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,6 +31,12 @@ class PopularViewController: UIViewController {
         popularTableView.register(UINib(nibName: "CollectionRowTableViewCell", bundle: nil), forCellReuseIdentifier: "collectionRow")
         
         loadPopularMovies()
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let movieViewController = segue.destination as? MovieViewController {
+            movieViewController.movie = (segueItem as! Movie)
+        }
     }
     
     private func loadPopularMovies() {
@@ -77,6 +83,7 @@ extension PopularViewController: UITableViewDataSource {
         let category = categories[indexPath.section]
         switch category {
         case "Movies":
+            cell.actionsDelegate = self
             cell.configRow(
                 items: popularMovies,
                 itemWidth: MovieViewCell.Size.width.rawValue,
@@ -115,5 +122,28 @@ extension PopularViewController: UITableViewDelegate {
         }
         
         return CGFloat(height + minSpacing + collectionRowTopConstraint + collectionRowBottomConstraint)
+    }
+}
+
+extension PopularViewController: CollectionRowProtocol {
+    func onMovieNavigation(movieId: Int) {
+        apiManager.getDetailsMovie(movieId: movieId) { (movie, error) in
+            if let movie = movie {
+                self.segueItem = movie
+                self.performSegue(withIdentifier: "fromPopularToMovie", sender: nil)
+            }
+            
+            if let error = error {
+                let alert = self.messageAlert(
+                    title: "There was a problem with opening this movie",
+                    message: "Check your connection to the internet and try again.\n\(error.localizedDescription)"
+                )
+                self.present(alert, animated: true, completion: nil)
+            }
+        }
+    }
+    
+    func onPersonNavigation(personId: Int) {
+        // Unnecesary in this VC
     }
 }

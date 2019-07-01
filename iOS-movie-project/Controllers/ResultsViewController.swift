@@ -12,15 +12,15 @@ class ResultsViewController: UIViewController {
 
     @IBOutlet weak var resultsTableView: UITableView!
     
-    let headerHeight: Int = 30
-    let firstHeaderExtra: Int = 40
-    let collectionRowTopConstraint: Int = 10
-    let collectionRowBottomConstraint: Int = 35
+    private let headerHeight: Int = 30
+    private let firstHeaderExtra: Int = 40
+    private let collectionRowTopConstraint: Int = 10
+    private let collectionRowBottomConstraint: Int = 35
     
-    let apiManager = ApiManager.sharedInstance
+    private let apiManager = ApiManager.sharedInstance
     var results: [String:[Any]] = [:]
     var categories: [String] = []
-    var segueItem: Any? = nil
+    private var segueItem: Any? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()

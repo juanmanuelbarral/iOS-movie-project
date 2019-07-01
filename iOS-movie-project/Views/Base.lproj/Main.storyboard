@@ -370,7 +370,7 @@
                     <navigationItem key="navigationItem" id="8f0-5s-41e"/>
                     <connections>
                         <outlet property="popularTableView" destination="MPw-XE-xe9" id="MeP-EG-XVR"/>
-                        <segue destination="qzY-5C-RqA" kind="show" identifier="popularToMovie" id="KFT-k9-KMV"/>
+                        <segue destination="qzY-5C-RqA" kind="show" identifier="fromPopularToMovie" id="KFT-k9-KMV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gt3-Hc-zRJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -617,6 +617,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="KVj-YY-jRm"/>
-        <segue reference="vEi-E3-g47"/>
+        <segue reference="KFT-k9-KMV"/>
     </inferredMetricsTieBreakers>
 </document>
