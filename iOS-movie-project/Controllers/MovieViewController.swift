@@ -13,7 +13,7 @@ class MovieViewController: UIViewController {
 
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var backdropImage: UIImageView!
-    @IBOutlet weak var backdropImageHeight: NSLayoutConstraint!
+    @IBOutlet weak var backdropDecorationImage: UIImageView!
     @IBOutlet weak var posterImage: UIImageView!
     @IBOutlet weak var movieTitle: UILabel!
     @IBOutlet weak var overviewText: UILabel!
@@ -55,6 +55,9 @@ class MovieViewController: UIViewController {
     }
     
     private func loadImages() {
+        backdropImage.isHidden = false
+        backdropDecorationImage.isHidden = true
+        
         if let posterPath = movie.posterPath {
             posterImage.kf.setImage(with: URL(string: "\(ApiManager.Images.baseUrl.rawValue)\(ApiManager.Images.posterSize.rawValue)\(posterPath)"))
         } else {
@@ -64,7 +67,8 @@ class MovieViewController: UIViewController {
         if let backdropPath = movie.backdropPath {
             backdropImage.kf.setImage(with: URL(string: "\(ApiManager.Images.baseUrl.rawValue)\(ApiManager.Images.backdropSize.rawValue)\(backdropPath)"))
         } else {
-            backdropImageHeight.constant = CGFloat(0)
+            backdropImage.isHidden = true
+            backdropDecorationImage.isHidden = false
         }
     }
     

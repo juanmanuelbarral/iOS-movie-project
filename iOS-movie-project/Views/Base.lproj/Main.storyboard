@@ -137,15 +137,21 @@
             <objects>
                 <viewController storyboardIdentifier="MovieViewController" id="qzY-5C-RqA" customClass="MovieViewController" customModule="iOS_movie_project" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="pX2-tp-Vg0">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="1029"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="1200"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r0P-ea-NTZ">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="1029"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="1122"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="r2g-XI-OQS" userLabel="Content View">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="903"/>
                                         <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="search-screen" translatesAutoresizingMaskIntoConstraints="NO" id="sVr-M1-4Jg" userLabel="Decoration top">
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="200"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="200" id="9rz-T4-jba"/>
+                                                </constraints>
+                                            </imageView>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="GVR-5t-ZrF">
                                                 <rect key="frame" x="0.0" y="0.0" width="414" height="200"/>
                                                 <constraints>
@@ -246,10 +252,12 @@
                                             <constraint firstItem="yJW-ZG-UtP" firstAttribute="top" secondItem="lEd-OO-UbC" secondAttribute="bottom" constant="10" id="Jcq-Jh-gMy"/>
                                             <constraint firstItem="bIz-D3-p4n" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="lEd-OO-UbC" secondAttribute="trailing" constant="30" id="Mzb-d9-B6h"/>
                                             <constraint firstItem="iA9-cP-gzb" firstAttribute="top" secondItem="GYs-mg-Ugt" secondAttribute="bottom" constant="5" id="NaK-ub-emv"/>
+                                            <constraint firstItem="sVr-M1-4Jg" firstAttribute="top" secondItem="r2g-XI-OQS" secondAttribute="top" id="Pf7-z0-pIV"/>
                                             <constraint firstItem="yJW-ZG-UtP" firstAttribute="centerX" secondItem="r2g-XI-OQS" secondAttribute="centerX" id="QEu-s7-yy3"/>
                                             <constraint firstItem="45E-2i-1Op" firstAttribute="leading" secondItem="r2g-XI-OQS" secondAttribute="leading" constant="15" id="QdC-3k-bow"/>
                                             <constraint firstItem="nDq-Rp-zhn" firstAttribute="top" secondItem="GVR-5t-ZrF" secondAttribute="bottom" constant="45" id="Unv-D4-4kX"/>
                                             <constraint firstItem="iA9-cP-gzb" firstAttribute="leading" secondItem="r2g-XI-OQS" secondAttribute="leading" id="YGo-eP-SyG"/>
+                                            <constraint firstAttribute="trailing" secondItem="sVr-M1-4Jg" secondAttribute="trailing" id="bOV-pj-gxs"/>
                                             <constraint firstItem="5xZ-4U-TFP" firstAttribute="top" secondItem="yJW-ZG-UtP" secondAttribute="bottom" constant="35" id="ccX-3J-b8R"/>
                                             <constraint firstItem="GVR-5t-ZrF" firstAttribute="top" secondItem="r2g-XI-OQS" secondAttribute="top" id="dSK-8E-YyC"/>
                                             <constraint firstItem="lEd-OO-UbC" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="nDq-Rp-zhn" secondAttribute="trailing" constant="30" id="eFY-TE-dwc"/>
@@ -257,6 +265,7 @@
                                             <constraint firstAttribute="trailing" secondItem="iA9-cP-gzb" secondAttribute="trailing" id="hZ2-Hb-b16"/>
                                             <constraint firstItem="OTb-Xp-dgC" firstAttribute="top" secondItem="Mln-PP-lOM" secondAttribute="bottom" constant="5" id="ic3-DC-m2A"/>
                                             <constraint firstItem="45E-2i-1Op" firstAttribute="top" secondItem="5xZ-4U-TFP" secondAttribute="bottom" constant="4" id="iu7-NQ-8gv"/>
+                                            <constraint firstItem="sVr-M1-4Jg" firstAttribute="leading" secondItem="r2g-XI-OQS" secondAttribute="leading" id="jO8-wm-8fC"/>
                                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="GYs-mg-Ugt" secondAttribute="trailing" constant="15" id="mi6-hF-RPl"/>
                                             <constraint firstItem="5xZ-4U-TFP" firstAttribute="leading" secondItem="r2g-XI-OQS" secondAttribute="leading" constant="15" id="pVq-3u-n0C"/>
                                             <constraint firstItem="bIz-D3-p4n" firstAttribute="centerX" secondItem="r2g-XI-OQS" secondAttribute="centerX" multiplier="1.7" constant="-13.899999999999977" id="qJu-SV-dFT"/>
@@ -291,8 +300,8 @@
                     </view>
                     <size key="freeformSize" width="414" height="1200"/>
                     <connections>
+                        <outlet property="backdropDecorationImage" destination="sVr-M1-4Jg" id="fZH-hj-1CX"/>
                         <outlet property="backdropImage" destination="GVR-5t-ZrF" id="1b6-mf-ira"/>
-                        <outlet property="backdropImageHeight" destination="VMk-el-JIN" id="XnQ-zJ-LsJ"/>
                         <outlet property="castCollectionView" destination="iA9-cP-gzb" id="YuQ-za-NQP"/>
                         <outlet property="movieTitle" destination="yJW-ZG-UtP" id="HXP-ET-kpU"/>
                         <outlet property="overviewText" destination="45E-2i-1Op" id="YpS-C8-m8l"/>
@@ -382,11 +391,11 @@
             <objects>
                 <viewController id="CmM-Bk-lts" customClass="PersonViewController" customModule="iOS_movie_project" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8v5-cF-ixu">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="929"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="1100"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4oJ-eF-Y9d">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="929"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="1022"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zR9-TS-3v2" userLabel="Content View">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="898"/>
@@ -616,7 +625,7 @@
         </namedColor>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="KVj-YY-jRm"/>
-        <segue reference="KFT-k9-KMV"/>
+        <segue reference="hxM-8o-vns"/>
+        <segue reference="vEi-E3-g47"/>
     </inferredMetricsTieBreakers>
 </document>
