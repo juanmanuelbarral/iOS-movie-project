@@ -24,6 +24,7 @@ class PersonViewController: UIViewController {
     private let apiManager = ApiManager.sharedInstance
     var person: Person!
     private var participationMovies: [Participation] = []
+    private var segueItem: Any? = nil
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,6 +39,12 @@ class PersonViewController: UIViewController {
         loadImages()
         loadInfo()
         loadMoviesParticipation()
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let movieViewController = segue.destination as? MovieViewController {
+            movieViewController.movie = (segueItem as! Movie)
+        }
     }
     
     private func loadImages() {
@@ -125,5 +132,29 @@ extension PersonViewController: UICollectionViewDelegateFlowLayout {
             height = 0
         }
         return CGSize(width: width, height: height)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        switch collectionView {
+        case self.participationMoviesCollectionView:
+            let idMovie = participationMovies[indexPath.row].mediaId!
+            apiManager.getDetailsMovie(movieId: idMovie) { (movie, error) in
+                if let movie = movie {
+                    self.segueItem = movie
+                    self.performSegue(withIdentifier: "fromPersonToMovie", sender: nil)
+                }
+                
+                if let error = error {
+                    let alert = self.messageAlert(
+                        title: "There was a problem with opening this movie",
+                        message: "Check your connection to the internet and try again.\n\(error.localizedDescription)"
+                    )
+                    self.present(alert, animated: true, completion: nil)
+                }
+            }
+            
+        default:
+            print("Unreachable case - navigation PersonViewController")
+        }
     }
 }

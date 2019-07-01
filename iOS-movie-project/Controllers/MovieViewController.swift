@@ -51,7 +51,6 @@ class MovieViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let personViewController = segue.destination as? PersonViewController {
             personViewController.person = (segueItem as! Person)
-            
         }
     }
     
@@ -206,7 +205,7 @@ extension MovieViewController: UICollectionViewDelegateFlowLayout {
             }
             
         default:
-            print("Unreachable case")
+            print("Unreachable case - navigation MovieViewController")
         }
     }
 }

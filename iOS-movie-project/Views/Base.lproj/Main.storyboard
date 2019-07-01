@@ -151,14 +151,14 @@
             <objects>
                 <viewController storyboardIdentifier="MovieViewController" id="qzY-5C-RqA" customClass="MovieViewController" customModule="iOS_movie_project" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="pX2-tp-Vg0">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="1029"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="1200"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r0P-ea-NTZ">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="1029"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="1122"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="r2g-XI-OQS" userLabel="Content View">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="903.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="903"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="GVR-5t-ZrF">
                                                 <rect key="frame" x="0.0" y="0.0" width="414" height="200"/>
@@ -173,8 +173,8 @@
                                                     <constraint firstAttribute="height" constant="225" id="2Bj-It-diY"/>
                                                 </constraints>
                                             </imageView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Movie Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yJW-ZG-UtP">
-                                                <rect key="frame" x="150.5" y="322.5" width="113" height="29"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Movie Title" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yJW-ZG-UtP">
+                                                <rect key="frame" x="45" y="322.5" width="324" height="28.5"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
                                                 <color key="textColor" name="Title text"/>
                                                 <nil key="highlightedColor"/>
@@ -182,25 +182,25 @@
                                                 <size key="shadowOffset" width="1" height="2"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Overview" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5xZ-4U-TFP">
-                                                <rect key="frame" x="15" y="386.5" width="81.5" height="22"/>
+                                                <rect key="frame" x="15" y="386" width="81.5" height="22"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                                 <color key="textColor" name="Title text"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Movie overview" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="45E-2i-1Op">
-                                                <rect key="frame" x="15" y="412.5" width="384" height="17"/>
+                                                <rect key="frame" x="15" y="412" width="384" height="17"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <color key="textColor" name="Text"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cast" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GYs-mg-Ugt">
-                                                <rect key="frame" x="15" y="464.5" width="40" height="22"/>
+                                                <rect key="frame" x="15" y="464" width="40" height="22"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                                 <color key="textColor" name="Title text"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="iA9-cP-gzb">
-                                                <rect key="frame" x="0.0" y="491.5" width="414" height="136"/>
+                                                <rect key="frame" x="0.0" y="491" width="414" height="136"/>
                                                 <color key="backgroundColor" name="Background"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="136" id="jml-fq-LkE"/>
@@ -214,13 +214,13 @@
                                                 <cells/>
                                             </collectionView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You might also like" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mln-PP-lOM">
-                                                <rect key="frame" x="15" y="662.5" width="160.5" height="21"/>
+                                                <rect key="frame" x="15" y="662" width="160.5" height="21"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                                 <color key="textColor" name="Title text"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="OTb-Xp-dgC">
-                                                <rect key="frame" x="0.0" y="688.5" width="414" height="195"/>
+                                                <rect key="frame" x="0.0" y="688" width="414" height="195"/>
                                                 <color key="backgroundColor" name="Background"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="195" id="bMl-Fh-Kuh"/>
@@ -250,6 +250,7 @@
                                             <constraint firstItem="lEd-OO-UbC" firstAttribute="centerY" secondItem="GVR-5t-ZrF" secondAttribute="baseline" id="20V-ok-GMp"/>
                                             <constraint firstAttribute="trailing" secondItem="45E-2i-1Op" secondAttribute="trailing" constant="15" id="5Ru-FG-Wd9"/>
                                             <constraint firstAttribute="trailing" secondItem="GVR-5t-ZrF" secondAttribute="trailing" id="5tA-ei-XPO"/>
+                                            <constraint firstItem="yJW-ZG-UtP" firstAttribute="leading" secondItem="r2g-XI-OQS" secondAttribute="leading" constant="45" id="6Tc-qe-D1n"/>
                                             <constraint firstItem="Mln-PP-lOM" firstAttribute="leading" secondItem="5xZ-4U-TFP" secondAttribute="leading" id="8Dt-tB-3NJ"/>
                                             <constraint firstItem="GVR-5t-ZrF" firstAttribute="centerX" secondItem="r2g-XI-OQS" secondAttribute="centerX" id="8Xc-wa-u2t"/>
                                             <constraint firstItem="GYs-mg-Ugt" firstAttribute="leading" secondItem="5xZ-4U-TFP" secondAttribute="leading" id="9Do-5V-EUG"/>
@@ -395,14 +396,14 @@
             <objects>
                 <viewController id="CmM-Bk-lts" customClass="PersonViewController" customModule="iOS_movie_project" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8v5-cF-ixu">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="929"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="1100"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4oJ-eF-Y9d">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="929"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="1022"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zR9-TS-3v2" userLabel="Content View">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="898.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="898"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="search-screen" translatesAutoresizingMaskIntoConstraints="NO" id="gLC-ac-UNT" userLabel="Decoration top">
                                                 <rect key="frame" x="0.0" y="0.0" width="414" height="200"/>
@@ -417,8 +418,8 @@
                                                     <constraint firstAttribute="width" constant="150" id="REB-2R-s4u"/>
                                                 </constraints>
                                             </imageView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Person name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tKW-6N-iQc">
-                                                <rect key="frame" x="139" y="337.5" width="136" height="29"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Person name" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tKW-6N-iQc">
+                                                <rect key="frame" x="45" y="337.5" width="324" height="28.5"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
                                                 <color key="textColor" name="Title text"/>
                                                 <nil key="highlightedColor"/>
@@ -426,55 +427,55 @@
                                                 <size key="shadowOffset" width="1" height="2"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Known for" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="as8-aE-sQP">
-                                                <rect key="frame" x="161.5" y="373.5" width="91" height="23"/>
+                                                <rect key="frame" x="161.5" y="373" width="91" height="23"/>
                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="19"/>
                                                 <color key="textColor" name="Text"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Born" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gud-Ot-yu5">
-                                                <rect key="frame" x="15" y="431.5" width="35" height="20"/>
+                                                <rect key="frame" x="15" y="431" width="35" height="20"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                 <color key="textColor" name="Title text"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="June 16, 1996" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zMF-kQ-p2N">
-                                                <rect key="frame" x="15" y="454.5" width="113" height="22"/>
+                                                <rect key="frame" x="15" y="454" width="113" height="22"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                 <color key="textColor" name="Text"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Died" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dKy-Mb-2Eh">
-                                                <rect key="frame" x="365" y="431.5" width="34" height="20"/>
+                                                <rect key="frame" x="365" y="431" width="34" height="20"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                 <color key="textColor" name="Title text"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="October 26, 2096" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZHd-4q-e15">
-                                                <rect key="frame" x="254" y="454.5" width="145" height="22"/>
+                                                <rect key="frame" x="254" y="454" width="145" height="22"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                 <color key="textColor" name="Text"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="From" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d3E-P7-vmo">
-                                                <rect key="frame" x="15" y="499.5" width="38" height="20"/>
+                                                <rect key="frame" x="15" y="499" width="38" height="20"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                 <color key="textColor" name="Title text"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Somewhere, England" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5SZ-3b-beV">
-                                                <rect key="frame" x="15" y="522.5" width="171" height="22"/>
+                                                <rect key="frame" x="15" y="522" width="171" height="22"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                 <color key="textColor" name="Text"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Biography" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OIL-zD-Jl3">
-                                                <rect key="frame" x="15" y="579.5" width="89" height="22"/>
+                                                <rect key="frame" x="15" y="579" width="89" height="22"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                                 <color key="textColor" name="Title text"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsVerticalScrollIndicator="NO" bouncesZoom="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="q66-hb-7pX">
-                                                <rect key="frame" x="0.0" y="683.5" width="414" height="195"/>
+                                                <rect key="frame" x="0.0" y="683" width="414" height="195"/>
                                                 <color key="backgroundColor" name="Background"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="195" id="C7A-Fl-5kJ"/>
@@ -483,18 +484,18 @@
                                                     <size key="itemSize" width="50" height="50"/>
                                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                    <inset key="sectionInset" minX="15" minY="0.0" maxX="15" maxY="0.0"/>
                                                 </collectionViewFlowLayout>
                                                 <cells/>
                                             </collectionView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Biography text" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0BI-xL-02z">
-                                                <rect key="frame" x="15" y="605.5" width="384" height="17"/>
+                                                <rect key="frame" x="15" y="605" width="384" height="17"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <color key="textColor" name="Text"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Movies" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="In7-ui-HPv">
-                                                <rect key="frame" x="15" y="657.5" width="61.5" height="22"/>
+                                                <rect key="frame" x="15" y="657" width="61.5" height="22"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                                 <color key="textColor" name="Title text"/>
                                                 <nil key="highlightedColor"/>
@@ -527,6 +528,7 @@
                                             <constraint firstAttribute="trailing" secondItem="0BI-xL-02z" secondAttribute="trailing" constant="15" id="brL-QF-546"/>
                                             <constraint firstAttribute="trailing" secondItem="dKy-Mb-2Eh" secondAttribute="trailing" constant="15" id="dIw-e4-joB"/>
                                             <constraint firstItem="In7-ui-HPv" firstAttribute="leading" secondItem="OIL-zD-Jl3" secondAttribute="leading" id="dTU-xW-2kJ"/>
+                                            <constraint firstItem="tKW-6N-iQc" firstAttribute="leading" secondItem="zR9-TS-3v2" secondAttribute="leading" constant="45" id="e5V-mm-fov"/>
                                             <constraint firstItem="0BI-xL-02z" firstAttribute="leading" secondItem="zR9-TS-3v2" secondAttribute="leading" constant="15" id="fi9-8u-m78"/>
                                             <constraint firstItem="q66-hb-7pX" firstAttribute="leading" secondItem="zR9-TS-3v2" secondAttribute="leading" id="hQx-te-shy"/>
                                             <constraint firstItem="zMF-kQ-p2N" firstAttribute="leading" secondItem="gud-Ot-yu5" secondAttribute="leading" id="hUJ-8b-NGg"/>
@@ -573,6 +575,7 @@
                         <outlet property="participationMoviesCollectionView" destination="q66-hb-7pX" id="c7U-vF-DoA"/>
                         <outlet property="profilePicture" destination="23c-4c-CJ6" id="EHM-sp-njk"/>
                         <outlet property="scrollView" destination="4oJ-eF-Y9d" id="lFY-nq-Mm4"/>
+                        <segue destination="qzY-5C-RqA" kind="show" identifier="fromPersonToMovie" id="vEi-E3-g47"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="enq-ah-xoX" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -628,6 +631,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="hxM-8o-vns"/>
-        <segue reference="KFT-k9-KMV"/>
+        <segue reference="vEi-E3-g47"/>
     </inferredMetricsTieBreakers>
 </document>
