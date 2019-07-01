@@ -21,9 +21,9 @@ class PersonViewController: UIViewController {
     @IBOutlet weak var biographyLabel: UILabel!
     @IBOutlet weak var participationMoviesCollectionView: UICollectionView!
     
-    var apiManager = ApiManager.sharedInstance
+    private let apiManager = ApiManager.sharedInstance
     var person: Person!
-    var participationMovies: [Participation] = []
+    private var participationMovies: [Participation] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -149,7 +149,7 @@
         <!--Movie View Controller-->
         <scene sceneID="PGT-aB-XZS">
             <objects>
-                <viewController id="qzY-5C-RqA" customClass="MovieViewController" customModule="iOS_movie_project" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MovieViewController" id="qzY-5C-RqA" customClass="MovieViewController" customModule="iOS_movie_project" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="pX2-tp-Vg0">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="1029"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

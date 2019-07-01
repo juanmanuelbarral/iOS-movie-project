@@ -22,10 +22,11 @@ class MovieViewController: UIViewController {
     @IBOutlet weak var year: UILabel!
     @IBOutlet weak var runtime: UILabel!
     
-    let apiManager = ApiManager.sharedInstance
+    private let apiManager = ApiManager.sharedInstance
     var movie: Movie!
-    var cast: [CastMember] = []
-    var similarMovies: [MoviePreview] = []
+    private var cast: [CastMember] = []
+    private var similarMovies: [MoviePreview] = []
+    private var segueItem: Any? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,6 +46,13 @@ class MovieViewController: UIViewController {
         loadInfo()
         loadCredits()
         loadSimilarMovies()
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let personViewController = segue.destination as? PersonViewController {
+            personViewController.person = (segueItem as! Person)
+            
+        }
     }
     
     private func loadImages() {
@@ -157,5 +165,48 @@ extension MovieViewController: UICollectionViewDelegateFlowLayout {
             height = 0
         }
         return CGSize(width: width, height: height)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        switch collectionView {
+        case self.castCollectionView:
+            let idPerson = cast[indexPath.row].personId!
+            apiManager.getDetailsPerson(personId: idPerson) { (person, error) in
+                if let person = person {
+                    self.segueItem = person
+                    self.performSegue(withIdentifier: "fromMovieToPerson", sender: nil)
+                }
+                
+                if let error = error {
+                    let alert = self.messageAlert(
+                        title: "There was a problem with opening this person's information",
+                        message: "Check your connection to the internet and try again.\n\(error.localizedDescription)"
+                    )
+                    self.present(alert, animated: true, completion: nil)
+                }
+            }
+            
+        case self.similarMoviesCollectionView:
+            let idMovie = similarMovies[indexPath.row].movieId!
+            apiManager.getDetailsMovie(movieId: idMovie) { (movie, error) in
+                if let movie = movie {
+                    let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                    let movieViewController = storyboard.instantiateViewController(withIdentifier: "MovieViewController") as! MovieViewController
+                    movieViewController.movie = movie
+                    self.navigationController!.pushViewController(movieViewController, animated: false)
+                }
+                
+                if let error = error {
+                    let alert = self.messageAlert(
+                        title: "There was a problem with opening this movie",
+                        message: "Check your connection to the internet and try again.\n\(error.localizedDescription)"
+                    )
+                    self.present(alert, animated: true, completion: nil)
+                }
+            }
+            
+        default:
+            print("Unreachable case")
+        }
     }
 }

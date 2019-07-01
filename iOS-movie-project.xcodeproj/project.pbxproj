@@ -21,9 +21,10 @@
 		922D7BBD22B32E5A005CFF4F /* ApiManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 922D7BBC22B32E5A005CFF4F /* ApiManager.swift */; };
 		922D7BC222B33254005CFF4F /* ModelManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 922D7BC122B33254005CFF4F /* ModelManager.swift */; };
 		92437C3222C44C9A00917AF9 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92437C3122C44C9A00917AF9 /* UIViewController.swift */; };
-		9250B8B122C91BB700A8F912 /* CollectionRowTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9250B8B022C91BB700A8F912 /* CollectionRowTableViewCell.swift */; };
 		9250B8B822C9682200A8F912 /* SectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9250B8B622C9682200A8F912 /* SectionHeaderView.swift */; };
 		9250B8B922C9682200A8F912 /* SectionHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9250B8B722C9682200A8F912 /* SectionHeaderView.xib */; };
+		9250B8C022C97C5900A8F912 /* CollectionRowTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9250B8BE22C97C5900A8F912 /* CollectionRowTableViewCell.swift */; };
+		9250B8C122C97C5900A8F912 /* CollectionRowTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9250B8BF22C97C5900A8F912 /* CollectionRowTableViewCell.xib */; };
 		9257B78822BC56A600DAFFE4 /* Member.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9257B78722BC56A600DAFFE4 /* Member.swift */; };
 		9257B78A22BC56B800DAFFE4 /* CrewMember.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9257B78922BC56B800DAFFE4 /* CrewMember.swift */; };
 		9257B78C22BC56C800DAFFE4 /* Participation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9257B78B22BC56C800DAFFE4 /* Participation.swift */; };
@@ -59,9 +60,10 @@
 		922D7BBC22B32E5A005CFF4F /* ApiManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiManager.swift; sourceTree = "<group>"; };
 		922D7BC122B33254005CFF4F /* ModelManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelManager.swift; sourceTree = "<group>"; };
 		92437C3122C44C9A00917AF9 /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
-		9250B8B022C91BB700A8F912 /* CollectionRowTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionRowTableViewCell.swift; sourceTree = "<group>"; };
 		9250B8B622C9682200A8F912 /* SectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionHeaderView.swift; sourceTree = "<group>"; };
 		9250B8B722C9682200A8F912 /* SectionHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SectionHeaderView.xib; sourceTree = "<group>"; };
+		9250B8BE22C97C5900A8F912 /* CollectionRowTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionRowTableViewCell.swift; sourceTree = "<group>"; };
+		9250B8BF22C97C5900A8F912 /* CollectionRowTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CollectionRowTableViewCell.xib; sourceTree = "<group>"; };
 		9257B78722BC56A600DAFFE4 /* Member.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Member.swift; sourceTree = "<group>"; };
 		9257B78922BC56B800DAFFE4 /* CrewMember.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrewMember.swift; sourceTree = "<group>"; };
 		9257B78B22BC56C800DAFFE4 /* Participation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Participation.swift; sourceTree = "<group>"; };
@@ -149,9 +151,10 @@
 				920D33EF22BED1AD0090AA3A /* MovieViewCell.xib */,
 				926BB5DF22BF395C00F8747E /* PersonViewCell.swift */,
 				926BB5E022BF395C00F8747E /* PersonViewCell.xib */,
-				9250B8B022C91BB700A8F912 /* CollectionRowTableViewCell.swift */,
 				9250B8B622C9682200A8F912 /* SectionHeaderView.swift */,
 				9250B8B722C9682200A8F912 /* SectionHeaderView.xib */,
+				9250B8BE22C97C5900A8F912 /* CollectionRowTableViewCell.swift */,
+				9250B8BF22C97C5900A8F912 /* CollectionRowTableViewCell.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -266,6 +269,7 @@
 				922D7BB122B3284F005CFF4F /* LaunchScreen.storyboard in Resources */,
 				9250B8B922C9682200A8F912 /* SectionHeaderView.xib in Resources */,
 				920D33F122BED1AD0090AA3A /* MovieViewCell.xib in Resources */,
+				9250B8C122C97C5900A8F912 /* CollectionRowTableViewCell.xib in Resources */,
 				922D7BAE22B3284F005CFF4F /* Assets.xcassets in Resources */,
 				922D7BAC22B3284C005CFF4F /* Main.storyboard in Resources */,
 				926BB5E222BF395C00F8747E /* PersonViewCell.xib in Resources */,
@@ -324,7 +328,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9250B8B122C91BB700A8F912 /* CollectionRowTableViewCell.swift in Sources */,
 				9257B78E22BC56D800DAFFE4 /* ParticipationAsCrew.swift in Sources */,
 				9257B78A22BC56B800DAFFE4 /* CrewMember.swift in Sources */,
 				920D33F022BED1AD0090AA3A /* MovieViewCell.swift in Sources */,
@@ -337,6 +340,7 @@
 				920D33F322BEDCCC0090AA3A /* UIColor.swift in Sources */,
 				928D041D22B60D4A00F18893 /* Person.swift in Sources */,
 				922D7BBD22B32E5A005CFF4F /* ApiManager.swift in Sources */,
+				9250B8C022C97C5900A8F912 /* CollectionRowTableViewCell.swift in Sources */,
 				922D7BC222B33254005CFF4F /* ModelManager.swift in Sources */,
 				922D7BA722B3284C005CFF4F /* AppDelegate.swift in Sources */,
 				92437C3222C44C9A00917AF9 /* UIViewController.swift in Sources */,
