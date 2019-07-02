@@ -22,6 +22,8 @@
 		92437C3222C44C9A00917AF9 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92437C3122C44C9A00917AF9 /* UIViewController.swift */; };
 		9243D02822CC0D9100A68914 /* TvShowViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9243D02622CC0D9100A68914 /* TvShowViewCell.swift */; };
 		9243D02922CC0D9100A68914 /* TvShowViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9243D02722CC0D9100A68914 /* TvShowViewCell.xib */; };
+		9243D02B22CC11DD00A68914 /* TvShow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9243D02A22CC11DD00A68914 /* TvShow.swift */; };
+		9243D02D22CC11EC00A68914 /* TvShowPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9243D02C22CC11EC00A68914 /* TvShowPreview.swift */; };
 		9250B8B822C9682200A8F912 /* SectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9250B8B622C9682200A8F912 /* SectionHeaderView.swift */; };
 		9250B8B922C9682200A8F912 /* SectionHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9250B8B722C9682200A8F912 /* SectionHeaderView.xib */; };
 		9250B8C022C97C5900A8F912 /* CollectionRowTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9250B8BE22C97C5900A8F912 /* CollectionRowTableViewCell.swift */; };
@@ -66,6 +68,8 @@
 		92437C3122C44C9A00917AF9 /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
 		9243D02622CC0D9100A68914 /* TvShowViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TvShowViewCell.swift; sourceTree = "<group>"; };
 		9243D02722CC0D9100A68914 /* TvShowViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TvShowViewCell.xib; sourceTree = "<group>"; };
+		9243D02A22CC11DD00A68914 /* TvShow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TvShow.swift; sourceTree = "<group>"; };
+		9243D02C22CC11EC00A68914 /* TvShowPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TvShowPreview.swift; sourceTree = "<group>"; };
 		9250B8B622C9682200A8F912 /* SectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionHeaderView.swift; sourceTree = "<group>"; };
 		9250B8B722C9682200A8F912 /* SectionHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SectionHeaderView.xib; sourceTree = "<group>"; };
 		9250B8BE22C97C5900A8F912 /* CollectionRowTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionRowTableViewCell.swift; sourceTree = "<group>"; };
@@ -198,6 +202,8 @@
 				9257B78D22BC56D800DAFFE4 /* ParticipationAsCrew.swift */,
 				928D041C22B60D4A00F18893 /* Person.swift */,
 				928D042622B72BCF00F18893 /* PersonPreview.swift */,
+				9243D02A22CC11DD00A68914 /* TvShow.swift */,
+				9243D02C22CC11EC00A68914 /* TvShowPreview.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -362,6 +368,7 @@
 				9250B8C022C97C5900A8F912 /* CollectionRowTableViewCell.swift in Sources */,
 				922D7BA722B3284C005CFF4F /* AppDelegate.swift in Sources */,
 				92437C3222C44C9A00917AF9 /* UIViewController.swift in Sources */,
+				9243D02B22CC11DD00A68914 /* TvShow.swift in Sources */,
 				9257B78822BC56A600DAFFE4 /* Member.swift in Sources */,
 				9224F60522C1CF7A00592848 /* PersonViewController.swift in Sources */,
 				928D042522B72AF700F18893 /* ParticipationAsCast.swift in Sources */,
@@ -372,6 +379,7 @@
 				92D1948522C2FD26001EF117 /* PopularViewController.swift in Sources */,
 				928D042722B72BCF00F18893 /* PersonPreview.swift in Sources */,
 				928D042122B7283800F18893 /* MoviePreview.swift in Sources */,
+				9243D02D22CC11EC00A68914 /* TvShowPreview.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -15,7 +15,7 @@ class TvShowViewCell: UICollectionViewCell {
     @IBOutlet weak var subtitleLabel: UILabel!
     
     var category: Category!
-//    var tvShowPreview: TvShowPreview? = nil
+    var tvShowPreview: TvShowPreview? = nil
     var cast: ParticipationAsCast? = nil
     var crew: ParticipationAsCrew? = nil
     
@@ -26,18 +26,18 @@ class TvShowViewCell: UICollectionViewCell {
         posterImage.layer.borderColor = UIColor(named: "Tv Show")?.cgColor
     }
     
-//    func configCell(tvShowPreview: MoviePreview) {
-//        self.category = Category.tvShowPreview
-//        self.tvShowPreview = tvShowPreview
-//
-//        if let posterPath = tvShowPreview.posterPath {
-//            posterImage.kf.setImage(with: URL(string: "\(ApiManager.Images.baseUrl.rawValue)\(ApiManager.Images.posterSize.rawValue)\(posterPath)"))
-//        } else {
-//            posterImage.kf.setImage(with: URL(string: ApiManager.Images.imageNotFound.rawValue))
-//        }
-//
-//        titleLabel.text = tvShowPreview.title
-//    }
+    func configCell(tvShowPreview: TvShowPreview) {
+        self.category = Category.tvShowPreview
+        self.tvShowPreview = tvShowPreview
+
+        if let posterPath = tvShowPreview.posterPath {
+            posterImage.kf.setImage(with: URL(string: "\(ApiManager.Images.baseUrl.rawValue)\(ApiManager.Images.posterSize.rawValue)\(posterPath)"))
+        } else {
+            posterImage.kf.setImage(with: URL(string: ApiManager.Images.imageNotFound.rawValue))
+        }
+
+        titleLabel.text = tvShowPreview.name
+    }
     
     func configCell(participationCast: ParticipationAsCast) {
         self.category = Category.participationAsCast

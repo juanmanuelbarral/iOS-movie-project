@@ -13,11 +13,10 @@ class Movie: Mappable {
     
     var movieId: Int!
     var title: String!
-    var posterPath: String!
+    var posterPath: String?
     var backdropPath: String?
     var releaseDate: Date?
     var runtime: Int?
-    var genres: [String]?
     var overview: String?
     var imbdId: String?
     
