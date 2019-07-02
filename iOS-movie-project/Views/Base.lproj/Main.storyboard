@@ -696,7 +696,7 @@
                                                         <color key="textColor" name="Title text"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" text="Movie overview" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7nd-cd-kQf">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" text="Tv show overview" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7nd-cd-kQf">
                                                         <rect key="frame" x="15" y="224" width="384" height="17"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <color key="textColor" name="Text"/>
@@ -848,10 +848,22 @@
                     </view>
                     <size key="freeformSize" width="414" height="1800"/>
                     <connections>
+                        <outlet property="aboutContentView" destination="QIv-3H-LX0" id="3Od-ny-uUl"/>
                         <outlet property="backdropDecoration" destination="FQh-wm-qy9" id="n7X-P2-Z2B"/>
                         <outlet property="backdropImage" destination="HvG-Na-MWq" id="oCL-Ya-IxQ"/>
+                        <outlet property="creditsCollectionView" destination="tBH-az-mua" id="dyt-XB-Pvl"/>
+                        <outlet property="episodesLabel" destination="BQ9-K2-TZ1" id="yvP-zb-DIz"/>
+                        <outlet property="finishYearLabel" destination="tiQ-Cr-BiB" id="hkl-fM-1bW"/>
+                        <outlet property="overviewLabel" destination="7nd-cd-kQf" id="dgW-tK-BbE"/>
                         <outlet property="posterImage" destination="ome-mJ-pjf" id="eBj-k0-xMj"/>
+                        <outlet property="runtimeLabel" destination="lSA-Cx-RI4" id="Wqc-tH-Jyy"/>
+                        <outlet property="seasonsCollectionView" destination="Woa-rM-Wsc" id="HWs-UY-dxV"/>
+                        <outlet property="seasonsContentView" destination="gs5-Tq-HPC" id="ysM-WG-dmH"/>
+                        <outlet property="seasonsLabel" destination="wlf-EI-xZ5" id="T2x-Tj-sC6"/>
                         <outlet property="segmentControl" destination="Wfu-Wm-7IM" id="vZ0-0k-qxl"/>
+                        <outlet property="similarTvShowsCollectionView" destination="kv6-DG-Dca" id="0TK-hh-08K"/>
+                        <outlet property="startYearLabel" destination="kna-yF-XBx" id="Cbk-LZ-e6F"/>
+                        <outlet property="statusLabel" destination="Gbf-hw-QEs" id="5F5-ix-Reo"/>
                         <outlet property="titleLabel" destination="Yl5-Y8-YZa" id="02A-f9-ZUd"/>
                         <segue destination="CmM-Bk-lts" kind="show" identifier="fromTvToPerson" id="j9b-8g-ejW"/>
                     </connections>
