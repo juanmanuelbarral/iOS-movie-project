@@ -18,6 +18,7 @@ class TvShowViewCell: UICollectionViewCell {
     var tvShowPreview: TvShowPreview? = nil
     var cast: ParticipationAsCast? = nil
     var crew: ParticipationAsCrew? = nil
+    var season: SeasonPreview? = nil
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -37,6 +38,7 @@ class TvShowViewCell: UICollectionViewCell {
         }
 
         titleLabel.text = tvShowPreview.name
+        subtitleLabel.isHidden = true
     }
     
     func configCell(participationCast: ParticipationAsCast) {
@@ -66,6 +68,20 @@ class TvShowViewCell: UICollectionViewCell {
         titleLabel.text = participationCrew.title
         subtitleLabel.text = participationCrew.job
     }
+    
+    func configCell(season: SeasonPreview) {
+        self.category = Category.season
+        self.season = season
+        
+        if let posterPath = season.posterPath {
+            posterImage.kf.setImage(with: URL(string: "\(ApiManager.Images.baseUrl.rawValue)\(ApiManager.Images.posterSize.rawValue)\(posterPath)"))
+        } else {
+            posterImage.kf.setImage(with: URL(string: ApiManager.Images.imageNotFound.rawValue))
+        }
+        
+        titleLabel.text = season.name
+        subtitleLabel.isHidden = true
+    }
 }
 
 extension TvShowViewCell {
@@ -73,6 +89,7 @@ extension TvShowViewCell {
         case tvShowPreview
         case participationAsCast
         case participationAsCrew
+        case season
     }
     
     enum Size: Int {
