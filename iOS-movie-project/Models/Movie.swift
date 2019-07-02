@@ -33,7 +33,6 @@ class Movie: Mappable {
         backdropPath <- map[Keys.backdropPath.rawValue]
         releaseDate <- (map[Keys.releaseDate.rawValue], CustomReleaseDateTransform())
         runtime <- map[Keys.runtime.rawValue]
-//        genres <- map[Keys.genres.rawValue]
         overview <- map[Keys.overview.rawValue]
         imbdId <- map[Keys.imbdId.rawValue]
     }
@@ -48,7 +47,6 @@ extension Movie {
         case releaseDate = "release_date"
         case runtime
         case overview
-        case genres
         case imbdId = "imdb_id"
     }
 }
