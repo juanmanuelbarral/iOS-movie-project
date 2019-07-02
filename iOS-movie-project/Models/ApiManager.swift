@@ -207,6 +207,138 @@ class ApiManager {
             }
         }
     }
+    
+    
+    // GET POPULAR TV SHOWS
+    // https://api.themoviedb.org/3/tv/popular?api_key=<<api_key>>&language=en-US&page=1
+    func getPopularTvShows(onCompletion: @escaping ([TvShowPreview]?, Error?) -> Void) {
+        let url = "\(Config.baseUrl.rawValue)/tv/popular?api_key=\(Config.apiKey.rawValue)&language=\(Config.language.rawValue)&page=1"
+        Alamofire.request(url).responseJSON { (response) in
+            switch response.result {
+            case .success(let value):
+                let jsonResponse = value as! JsonType
+                let previewsArray = jsonResponse["results"] as! [JsonType]
+                let tvShowPreviews: [TvShowPreview] = Mapper<TvShowPreview>().mapArray(JSONArray: previewsArray)
+                onCompletion(tvShowPreviews, nil)
+                
+            case .failure(let error):
+                onCompletion(nil, error)
+            }
+        }
+    }
+    
+    
+    // GET TV SHOW DETAILS
+    // https://api.themoviedb.org/3/tv/{tv_id}?api_key=<<api_key>>&language=en-US
+    func getDetailsTvShow(tvShowId: Int, onCompletion: @escaping (TvShow?, Error?) -> Void) {
+        let url = "\(Config.baseUrl.rawValue)/tv/\(tvShowId)?api_key=\(Config.apiKey.rawValue)&language=\(Config.language.rawValue)"
+        Alamofire.request(url).responseObject { (response: DataResponse<TvShow>) in
+            switch response.result {
+            case .success(let tvShow):
+                onCompletion(tvShow, nil)
+                
+            case .failure(let error):
+                onCompletion(nil, error)
+            }
+        }
+    }
+    
+    
+    // GET TV SHOW CREDITS
+    // https://api.themoviedb.org/3/tv/{tv_id}/credits?api_key=<<api_key>>&language=en-US
+    func getTvShowCredits(tvShowId: Int, onCompletion: @escaping ([Member.Role:[Member]]?, Error?) -> Void) {
+        let url = "\(Config.baseUrl.rawValue)/tv/\(tvShowId)/credits?api_key=\(Config.apiKey.rawValue)&language=\(Config.language.rawValue)"
+        Alamofire.request(url).responseJSON { (response) in
+            switch response.result {
+            case .success(let value):
+                let jsonResponse = value as! JsonType
+                let castArray = jsonResponse["cast"] as! [JsonType]
+                var castMembers: [CastMember] = []
+                castArray.forEach { (castItem) in
+                    if let castMember = Mapper<CastMember>().map(JSON: castItem) {
+                        castMember.mediaId = tvShowId
+                        castMembers.append(castMember)
+                    }
+                }
+                
+                let crewArray = jsonResponse["crew"] as! [JsonType]
+                var crewMembers: [CrewMember] = []
+                crewArray.forEach { (crewItem) in
+                    if let crewMember = Mapper<CrewMember>().map(JSON: crewItem) {
+                        crewMember.mediaId = tvShowId
+                        crewMembers.append(crewMember)
+                    }
+                }
+                
+                let members: [Member.Role:[Member]] = [
+                    Member.Role.cast: castMembers,
+                    Member.Role.crew: crewMembers
+                ]
+                onCompletion(members, nil)
+                
+            case .failure(let error):
+                onCompletion(nil, error)
+            }
+        }
+    }
+    
+    
+    // GET SIMILAR TV SHOWS
+    // https://api.themoviedb.org/3/tv/{tv_id}/similar?api_key=<<api_key>>&language=en-US&page=1
+    func getSimilarTvShows(tvShowId: Int, onCompletion: @escaping ([TvShowPreview]?, Error?) -> Void) {
+        let url = "\(Config.baseUrl.rawValue)/tv/\(tvShowId)/similar?api_key=\(Config.apiKey.rawValue)&language=\(Config.language.rawValue)&page=1"
+        Alamofire.request(url).responseJSON { (response) in
+            switch response.result {
+            case .success(let value):
+                let jsonResponse = value as! JsonType
+                let previewsArray = jsonResponse["results"] as! [JsonType]
+                let similarTvShows = Mapper<TvShowPreview>().mapArray(JSONArray: previewsArray)
+                onCompletion(similarTvShows, nil)
+                
+            case .failure(let error):
+                onCompletion(nil, error)
+            }
+        }
+    }
+    
+    
+    // GET PERSON'S TV SHOW CREDITS
+    // https://api.themoviedb.org/3/person/{person_id}/tv_credits?api_key=<<api_key>>&language=en-US
+    func getTvShowCreditsPerson(personId: Int, onCompletion: @escaping ([Participation.Role:[Participation]]?, Error?) -> Void) {
+        let url = "\(Config.baseUrl.rawValue)/person/\(personId)/tv_credits?api_key=\(Config.apiKey.rawValue)&language=\(Config.language.rawValue)"
+        Alamofire.request(url).responseJSON { (response) in
+            switch response.result {
+            case .success(let value):
+                let jsonResponse = value as! JsonType
+                let asCastArray = jsonResponse["cast"] as! [JsonType]
+                var participationsCast: [ParticipationAsCast] = []
+                asCastArray.forEach { (participation) in
+                    if let participationCast = Mapper<ParticipationAsCast>().map(JSON: participation) {
+                        participationCast.personId = personId
+                        participationsCast.append(participationCast)
+                    }
+                }
+                
+                let asCrewArray = jsonResponse["crew"] as! [JsonType]
+                var participationsCrew: [ParticipationAsCrew] = []
+                asCrewArray.forEach{ (participation) in
+                    if let participationCrew = Mapper<ParticipationAsCrew>().map(JSON: participation) {
+                        participationCrew.personId = personId
+                        participationsCrew.append(participationCrew)
+                    }
+                }
+                
+                let participations: [Participation.Role:[Participation]] = [
+                    Participation.Role.cast: participationsCast,
+                    Participation.Role.crew: participationsCrew
+                ]
+                onCompletion(participations, nil)
+                
+            case .failure(let error):
+                onCompletion(nil, error)
+            }
+        }
+    }
 }
 
 extension ApiManager {
