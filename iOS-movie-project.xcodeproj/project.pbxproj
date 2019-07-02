@@ -20,6 +20,8 @@
 		922D7BB122B3284F005CFF4F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 922D7BAF22B3284F005CFF4F /* LaunchScreen.storyboard */; };
 		922D7BBD22B32E5A005CFF4F /* ApiManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 922D7BBC22B32E5A005CFF4F /* ApiManager.swift */; };
 		92437C3222C44C9A00917AF9 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92437C3122C44C9A00917AF9 /* UIViewController.swift */; };
+		9243D02822CC0D9100A68914 /* TvShowViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9243D02622CC0D9100A68914 /* TvShowViewCell.swift */; };
+		9243D02922CC0D9100A68914 /* TvShowViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9243D02722CC0D9100A68914 /* TvShowViewCell.xib */; };
 		9250B8B822C9682200A8F912 /* SectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9250B8B622C9682200A8F912 /* SectionHeaderView.swift */; };
 		9250B8B922C9682200A8F912 /* SectionHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9250B8B722C9682200A8F912 /* SectionHeaderView.xib */; };
 		9250B8C022C97C5900A8F912 /* CollectionRowTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9250B8BE22C97C5900A8F912 /* CollectionRowTableViewCell.swift */; };
@@ -62,6 +64,8 @@
 		922D7BB222B3284F005CFF4F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		922D7BBC22B32E5A005CFF4F /* ApiManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiManager.swift; sourceTree = "<group>"; };
 		92437C3122C44C9A00917AF9 /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
+		9243D02622CC0D9100A68914 /* TvShowViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TvShowViewCell.swift; sourceTree = "<group>"; };
+		9243D02722CC0D9100A68914 /* TvShowViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TvShowViewCell.xib; sourceTree = "<group>"; };
 		9250B8B622C9682200A8F912 /* SectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionHeaderView.swift; sourceTree = "<group>"; };
 		9250B8B722C9682200A8F912 /* SectionHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SectionHeaderView.xib; sourceTree = "<group>"; };
 		9250B8BE22C97C5900A8F912 /* CollectionRowTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionRowTableViewCell.swift; sourceTree = "<group>"; };
@@ -161,6 +165,8 @@
 				926BB5E022BF395C00F8747E /* PersonViewCell.xib */,
 				9250B8B622C9682200A8F912 /* SectionHeaderView.swift */,
 				9250B8B722C9682200A8F912 /* SectionHeaderView.xib */,
+				9243D02622CC0D9100A68914 /* TvShowViewCell.swift */,
+				9243D02722CC0D9100A68914 /* TvShowViewCell.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -276,6 +282,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				922D7BB122B3284F005CFF4F /* LaunchScreen.storyboard in Resources */,
+				9243D02922CC0D9100A68914 /* TvShowViewCell.xib in Resources */,
 				9250B8B922C9682200A8F912 /* SectionHeaderView.xib in Resources */,
 				920D33F122BED1AD0090AA3A /* MovieViewCell.xib in Resources */,
 				9250B8C122C97C5900A8F912 /* CollectionRowTableViewCell.xib in Resources */,
@@ -338,6 +345,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				92FB68CA22CAEE71009D29B2 /* TvShowViewController.swift in Sources */,
+				9243D02822CC0D9100A68914 /* TvShowViewCell.swift in Sources */,
 				9257B78E22BC56D800DAFFE4 /* ParticipationAsCrew.swift in Sources */,
 				9257B78A22BC56B800DAFFE4 /* CrewMember.swift in Sources */,
 				920D33F022BED1AD0090AA3A /* MovieViewCell.swift in Sources */,
