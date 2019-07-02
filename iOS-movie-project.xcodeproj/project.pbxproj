@@ -41,6 +41,7 @@
 		928D042722B72BCF00F18893 /* PersonPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 928D042622B72BCF00F18893 /* PersonPreview.swift */; };
 		92D1948322C2FCDB001EF117 /* ResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D1948222C2FCDB001EF117 /* ResultsViewController.swift */; };
 		92D1948522C2FD26001EF117 /* PopularViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D1948422C2FD26001EF117 /* PopularViewController.swift */; };
+		92FB68CA22CAEE71009D29B2 /* TvShowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92FB68C922CAEE71009D29B2 /* TvShowViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -82,6 +83,7 @@
 		928D042622B72BCF00F18893 /* PersonPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonPreview.swift; sourceTree = "<group>"; };
 		92D1948222C2FCDB001EF117 /* ResultsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsViewController.swift; sourceTree = "<group>"; };
 		92D1948422C2FD26001EF117 /* PopularViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularViewController.swift; sourceTree = "<group>"; };
+		92FB68C922CAEE71009D29B2 /* TvShowViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TvShowViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -171,6 +173,7 @@
 				9224F60422C1CF7A00592848 /* PersonViewController.swift */,
 				92D1948222C2FCDB001EF117 /* ResultsViewController.swift */,
 				92D1948422C2FD26001EF117 /* PopularViewController.swift */,
+				92FB68C922CAEE71009D29B2 /* TvShowViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -334,6 +337,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				92FB68CA22CAEE71009D29B2 /* TvShowViewController.swift in Sources */,
 				9257B78E22BC56D800DAFFE4 /* ParticipationAsCrew.swift in Sources */,
 				9257B78A22BC56B800DAFFE4 /* CrewMember.swift in Sources */,
 				920D33F022BED1AD0090AA3A /* MovieViewCell.swift in Sources */,
