@@ -22,7 +22,7 @@ class TvShow: Mappable {
     var numberOfEpisodes: Int?
     var runtime: [Int]?
     var overview: String?
-//    var seasons: [SeasonPreview]?
+    var seasons: [SeasonPreview]?
     
     required init?(map: Map) {
         if map.JSON[Keys.tvShowId.rawValue] == nil { return nil }
@@ -34,14 +34,14 @@ class TvShow: Mappable {
         name <- map[Keys.name.rawValue]
         posterPath <- map[Keys.posterPath.rawValue]
         backdropPath <- map[Keys.backdropPath.rawValue]
-        firstAirDate <- map[Keys.firstAirDate.rawValue]
-        lastAirDate <- map[Keys.lastAirDate.rawValue]
+        firstAirDate <- (map[Keys.firstAirDate.rawValue], CustomReleaseDateTransform())
+        lastAirDate <- (map[Keys.lastAirDate.rawValue], CustomReleaseDateTransform())
         status <- map[Keys.status.rawValue]
         numberOfSeasons <- map[Keys.numberOfSeasons.rawValue]
         numberOfEpisodes <- map[Keys.numberOfEpisodes.rawValue]
         runtime <- map[Keys.runtime.rawValue]
         overview <- map[Keys.overview.rawValue]
-        //    seasons <- map[Keys.seasons.rawValue]
+        seasons <- map[Keys.seasons.rawValue]
     }
 }
 
@@ -58,6 +58,6 @@ extension TvShow {
         case numberOfEpisodes = "number_of_episodes"
         case runtime = "episode_run_time"
         case overview
-        //    case seasons
+        case seasons
     }
 }

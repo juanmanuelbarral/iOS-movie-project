@@ -25,7 +25,7 @@ class CustomReleaseDateTransform: TransformType {
     public func transformToJSON(_ value: Object?) -> JSON? {
         
         let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZZZ"
+        formatter.dateFormat = "yyyy-MM-dd"
         if let date = value {
             return formatter.string(from: date)
         }

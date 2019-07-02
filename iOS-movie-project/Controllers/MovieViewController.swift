@@ -79,7 +79,7 @@ class MovieViewController: UIViewController {
         if let runtime = movie.runtime {
             let hours: Int = runtime / 60
             let minutes: Int = runtime % 60
-            self.runtime.text = "\(hours)h \(minutes)'"
+            self.runtime.text = (hours > 0) ? "\(hours)h \(minutes)'" : "\(minutes)'"
         } else {
             self.runtime.text = "N/A"
         }
