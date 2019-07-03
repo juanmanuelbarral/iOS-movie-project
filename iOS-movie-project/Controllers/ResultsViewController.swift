@@ -38,6 +38,10 @@ class ResultsViewController: UIViewController {
         if let personViewController = segue.destination as? PersonViewController {
             personViewController.person = (segueItem as! Person)
         }
+        
+        if let tvShowViewController = segue.destination as? TvShowViewController {
+            tvShowViewController.tvShow = (segueItem as! TvShow)
+        }
     }
 }
 
@@ -88,6 +92,15 @@ extension ResultsViewController: UITableViewDataSource {
                 itemHeight: PersonViewCell.Size.heightWithoutSub.rawValue
             )
             
+        case "Tv Shows":
+            let items = results[category] as! [TvShowPreview]
+            cell.actionsDelegate = self
+            cell.configRow(
+                items: items,
+                itemWidth: TvShowViewCell.Size.width.rawValue,
+                itemHeight: TvShowViewCell.Size.heightWithoutSub.rawValue
+            )
+            
         default:
             print("Items out of type on category: \(category) - index: \(indexPath.section)")
         }
@@ -105,6 +118,9 @@ extension ResultsViewController: UITableViewDelegate {
             
             case "People":
                 return PersonViewCell.Size.heightWithoutSub.rawValue
+                
+            case "Tv Shows":
+                return TvShowViewCell.Size.heightWithoutSub.rawValue
             
             default:
                 return 0
@@ -143,6 +159,23 @@ extension ResultsViewController: CollectionRowProtocol {
             if let error = error {
                 let alert = self.messageAlert(
                     title: "There was a problem with opening this person's information",
+                    message: "Check your connection to the internet and try again.\n\(error.localizedDescription)"
+                )
+                self.present(alert, animated: true, completion: nil)
+            }
+        }
+    }
+    
+    func onTvShowNavigation(tvShowId: Int) {
+        apiManager.getDetailsTvShow(tvShowId: tvShowId) { (tvShow, error) in
+            if let tvShowSegue = tvShow {
+                self.segueItem = tvShowSegue
+                self.performSegue(withIdentifier: "fromResultsToTv", sender: nil)
+            }
+            
+            if let error = error {
+                let alert = self.messageAlert(
+                    title: "There was a problem with opening this tv show",
                     message: "Check your connection to the internet and try again.\n\(error.localizedDescription)"
                 )
                 self.present(alert, animated: true, completion: nil)

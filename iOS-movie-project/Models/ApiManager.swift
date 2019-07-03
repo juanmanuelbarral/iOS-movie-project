@@ -30,6 +30,7 @@ class ApiManager {
                 let resultsArray = jsonResponse["results"] as! [JsonType]
                 var movieResults: [MoviePreview] = []
                 var personResults: [PersonPreview] = []
+                var tvShowResults: [TvShowPreview] = []
                 resultsArray.forEach{ (result) in
                     let type = result["media_type"] as! String
                     switch type {
@@ -43,15 +44,21 @@ class ApiManager {
                             personResults.append(personPreview)
                         }
                         
+                    case "tv":
+                        if let tvShowPreview = Mapper<TvShowPreview>().map(JSON: result) {
+                            tvShowResults.append(tvShowPreview)
+                        }
+                        
                     default:
                         print("Other type caught in the search of \(query)")
                     }
                 }
                 let returnDictionary: [String:[Any]] = [
                     "Movies": movieResults,
+                    "Tv Shows": tvShowResults,
                     "People": personResults
                 ]
-                let returnCategories = ["Movies", "People"]
+                let returnCategories = ["Movies", "Tv Shows", "People"]
                 
                 onCompletion(returnDictionary, returnCategories, nil)
                 
