@@ -19,8 +19,9 @@ class PopularViewController: UIViewController {
     private let collectionRowBottomConstraint: Int = 35
     
     private let apiManager = ApiManager.sharedInstance
-    let categories = ["Movies"]
+    let categories = ["Movies", "TV Shows"]
     var popularMovies: [MoviePreview] = []
+    var popularTvShows: [TvShowPreview] = []
     private var segueItem: Any? = nil
     
     override func viewDidLoad() {
@@ -31,11 +32,16 @@ class PopularViewController: UIViewController {
         popularTableView.register(UINib(nibName: "CollectionRowTableViewCell", bundle: nil), forCellReuseIdentifier: "collectionRow")
         
         loadPopularMovies()
+        loadPopularTvShows()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let movieViewController = segue.destination as? MovieViewController {
             movieViewController.movie = (segueItem as! Movie)
+        }
+        
+        if let tvShowViewController = segue.destination as? TvShowViewController {
+            tvShowViewController.tvShow = (segueItem as! TvShow)
         }
     }
     
@@ -43,6 +49,19 @@ class PopularViewController: UIViewController {
         apiManager.getPopularMovies { (movies, error) in
             if let movies = movies {
                 self.popularMovies = movies
+                self.popularTableView.reloadData()
+            }
+            
+            if error != nil {
+                // TODO: do something when error
+            }
+        }
+    }
+    
+    private func loadPopularTvShows() {
+        apiManager.getPopularTvShows { (tvShows, error) in
+            if let tvShows = tvShows {
+                self.popularTvShows = tvShows
                 self.popularTableView.reloadData()
             }
             
@@ -81,22 +100,21 @@ extension PopularViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "collectionRow") as! CollectionRowTableViewCell
         let category = categories[indexPath.section]
+        cell.actionsDelegate = self
         switch category {
         case "Movies":
-            cell.actionsDelegate = self
             cell.configRow(
                 items: popularMovies,
                 itemWidth: MovieViewCell.Size.width.rawValue,
                 itemHeight: MovieViewCell.Size.height.rawValue
             )
         
-//        case "TV Shows":
-//            let items = results[category] as! [PersonPreview]
-//            cell.configRow(
-//                items: items,
-//                itemWidth: PersonViewCell.Size.width.rawValue,
-//                itemHeight: PersonViewCell.Size.heightWithoutSub.rawValue
-//            )
+        case "TV Shows":
+            cell.configRow(
+                items: popularTvShows,
+                itemWidth: TvShowViewCell.Size.width.rawValue,
+                itemHeight: TvShowViewCell.Size.heightWithoutSub.rawValue
+            )
 
         default:
             print("Items out of type on category: \(category) - index: \(indexPath.section)")
@@ -113,8 +131,8 @@ extension PopularViewController: UITableViewDelegate {
             case "Movies":
                 return MovieViewCell.Size.height.rawValue * 2
                 
-//            case "People":
-//                return PersonViewCell.Size.heightWithoutSub.rawValue
+            case "TV Shows":
+                return TvShowViewCell.Size.heightWithoutSub.rawValue * 2
                 
             default:
                 return 0
@@ -136,6 +154,23 @@ extension PopularViewController: CollectionRowProtocol {
             if let error = error {
                 let alert = self.messageAlert(
                     title: "There was a problem with opening this movie",
+                    message: "Check your connection to the internet and try again.\n\(error.localizedDescription)"
+                )
+                self.present(alert, animated: true, completion: nil)
+            }
+        }
+    }
+    
+    func onTvShowNavigation(tvShowId: Int) {
+        apiManager.getDetailsTvShow(tvShowId: tvShowId) { (tvShow, error) in
+            if let tvShowSegue = tvShow {
+                self.segueItem = tvShowSegue
+                self.performSegue(withIdentifier: "fromPopularToTv", sender: nil)
+            }
+            
+            if let error = error {
+                let alert = self.messageAlert(
+                    title: "There was a problem with opening this tv show",
                     message: "Check your connection to the internet and try again.\n\(error.localizedDescription)"
                 )
                 self.present(alert, animated: true, completion: nil)
