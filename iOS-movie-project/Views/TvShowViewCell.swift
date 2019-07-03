@@ -80,7 +80,7 @@ class TvShowViewCell: UICollectionViewCell {
         }
         
         titleLabel.text = season.name
-        subtitleLabel.isHidden = true
+        subtitleLabel.text = (season.numberOfEpisodes != nil) ? "\(season.numberOfEpisodes!) episodes" : "-"
     }
 }
 

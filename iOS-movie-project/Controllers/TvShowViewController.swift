@@ -54,7 +54,7 @@ class TvShowViewController: UIViewController {
         
         seasonsCollectionView.dataSource = self
         seasonsCollectionView.delegate = self
-        similarTvShowsCollectionView.register(UINib(nibName: "TvShowViewCell", bundle: nil), forCellWithReuseIdentifier: "seasonCell")
+        seasonsCollectionView.register(UINib(nibName: "TvShowViewCell", bundle: nil), forCellWithReuseIdentifier: "seasonCell")
         
         posterImage.layer.borderWidth = 3
         posterImage.layer.borderColor = UIColor(named: "Tv Show")?.cgColor
@@ -227,7 +227,7 @@ extension TvShowViewController: UICollectionViewDelegateFlowLayout {
         
         case self.seasonsCollectionView:
             width = TvShowViewCell.Size.width.rawValue
-            height = TvShowViewCell.Size.heightWithoutSub.rawValue
+            height = TvShowViewCell.Size.heightWithSub.rawValue
             
         default:
             width = 0
