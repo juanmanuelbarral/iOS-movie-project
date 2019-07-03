@@ -355,7 +355,7 @@ extension ApiManager {
         case baseUrl = "https://image.tmdb.org/t/p"
         case backdropSize = "/w780"
         case posterSize = "/w500"
-        case profileSize = "/w632"
+        case profileSize = "/h632"
         case stillSize = "/w300"
         case imageNotFound = "https://images.immediate.co.uk/production/volatile/sites/3/2017/11/imagenotavailable1-39de324.png?quality=90&resize=768,574"
     }
