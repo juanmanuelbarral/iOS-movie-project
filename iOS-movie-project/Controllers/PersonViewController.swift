@@ -20,10 +20,12 @@ class PersonViewController: UIViewController {
     @IBOutlet weak var fromPlaceLabel: UILabel!
     @IBOutlet weak var biographyLabel: UILabel!
     @IBOutlet weak var participationMoviesCollectionView: UICollectionView!
+    @IBOutlet weak var participationTvShowsCollectionView: UICollectionView!
     
     private let apiManager = ApiManager.sharedInstance
     var person: Person!
     private var participationMovies: [Participation] = []
+    private var participationTvShows: [Participation] = []
     private var segueItem: Any? = nil
 
     override func viewDidLoad() {
@@ -32,6 +34,10 @@ class PersonViewController: UIViewController {
         participationMoviesCollectionView.dataSource = self
         participationMoviesCollectionView.delegate = self
         participationMoviesCollectionView.register(UINib(nibName: "MovieViewCell", bundle: nil), forCellWithReuseIdentifier: "movieParticipationCell")
+        
+        participationTvShowsCollectionView.dataSource = self
+        participationTvShowsCollectionView.delegate = self
+        participationTvShowsCollectionView.register(UINib(nibName: "TvShowViewCell", bundle: nil), forCellWithReuseIdentifier: "tvShowParticipationCell")
 
         profilePicture.layer.borderWidth = 3
         profilePicture.layer.borderColor = UIColor(named: "Person")?.cgColor
@@ -39,11 +45,16 @@ class PersonViewController: UIViewController {
         loadImages()
         loadInfo()
         loadMoviesParticipation()
+        loadTvShowsParticipation()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let movieViewController = segue.destination as? MovieViewController {
             movieViewController.movie = (segueItem as! Movie)
+        }
+        
+        if let tvShowViewController = segue.destination as? TvShowViewController {
+            tvShowViewController.tvShow = (segueItem as! TvShow)
         }
     }
     
@@ -80,6 +91,23 @@ class PersonViewController: UIViewController {
             }
         }
     }
+    
+    private func loadTvShowsParticipation() {
+        apiManager.getTvShowCreditsPerson(personId: person.personId) { (response: [Participation.Role : [Participation]]?, error) in
+            if let response = response {
+                let cast = response[Participation.Role.cast] as! [ParticipationAsCast]
+                let crew = response[Participation.Role.crew] as! [ParticipationAsCrew]
+                self.participationTvShows.append(contentsOf: cast)
+                self.participationTvShows.append(contentsOf: crew)
+                //maybe different sections?
+                self.participationTvShowsCollectionView.reloadData()
+            }
+            
+            if error != nil {
+                // TODO: do something when there is an error
+            }
+        }
+    }
 }
 
 
@@ -88,6 +116,9 @@ extension PersonViewController: UICollectionViewDataSource {
         switch collectionView {
         case self.participationMoviesCollectionView:
             return participationMovies.count
+            
+        case self.participationTvShowsCollectionView:
+            return participationTvShows.count
             
         default:
             return 0
@@ -99,6 +130,9 @@ extension PersonViewController: UICollectionViewDataSource {
         case self.participationMoviesCollectionView:
             return cellForParticipationMovieCollection(collectionView, indexPath)
             
+        case self.participationTvShowsCollectionView:
+            return cellForParticipationTvShowCollection(collectionView, indexPath)
+            
         default:
             return UICollectionViewCell()
         }
@@ -108,6 +142,18 @@ extension PersonViewController: UICollectionViewDataSource {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "movieParticipationCell", for: indexPath) as! MovieViewCell
         let item = participationMovies[indexPath.row]
 
+        if let participationCast = item as? ParticipationAsCast {
+            cell.configCell(participationCast: participationCast)
+        } else if let participationCrew = item as? ParticipationAsCrew {
+            cell.configCell(participationCrew: participationCrew)
+        }
+        return cell
+    }
+    
+    private func cellForParticipationTvShowCollection(_ collectionView: UICollectionView, _ indexPath: IndexPath) -> TvShowViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "tvShowParticipationCell", for: indexPath) as! TvShowViewCell
+        let item = participationTvShows[indexPath.row]
+        
         if let participationCast = item as? ParticipationAsCast {
             cell.configCell(participationCast: participationCast)
         } else if let participationCrew = item as? ParticipationAsCrew {
@@ -126,6 +172,10 @@ extension PersonViewController: UICollectionViewDelegateFlowLayout {
         case self.participationMoviesCollectionView:
             width = MovieViewCell.Size.width.rawValue
             height = MovieViewCell.Size.height.rawValue
+            
+        case self.participationTvShowsCollectionView:
+            width = TvShowViewCell.Size.width.rawValue
+            height = TvShowViewCell.Size.heightWithSub.rawValue
             
         default:
             width = 0
@@ -147,6 +197,23 @@ extension PersonViewController: UICollectionViewDelegateFlowLayout {
                 if let error = error {
                     let alert = self.messageAlert(
                         title: "There was a problem with opening this movie",
+                        message: "Check your connection to the internet and try again.\n\(error.localizedDescription)"
+                    )
+                    self.present(alert, animated: true, completion: nil)
+                }
+            }
+            
+        case self.participationTvShowsCollectionView:
+            let idTvShow = participationTvShows[indexPath.row].mediaId!
+            apiManager.getDetailsTvShow(tvShowId: idTvShow) { (tvShow, error) in
+                if let tvShowSegue = tvShow {
+                    self.segueItem = tvShowSegue
+                    self.performSegue(withIdentifier: "fromPersonToTv", sender: nil)
+                }
+                
+                if let error = error {
+                    let alert = self.messageAlert(
+                        title: "There was a problem with opening this Tv Show",
                         message: "Check your connection to the internet and try again.\n\(error.localizedDescription)"
                     )
                     self.present(alert, animated: true, completion: nil)
