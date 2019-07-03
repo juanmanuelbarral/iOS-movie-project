@@ -32,15 +32,21 @@ class CollectionRowTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    func configRow(items: [MoviePreview], itemWidth: Int, itemHeight:Int) {
+    func configRow(items: [MoviePreview], itemWidth: Int, itemHeight: Int) {
         self.category = Category.movie
         self.collectionViewRow.register(UINib(nibName: "MovieViewCell", bundle: nil), forCellWithReuseIdentifier: "movieCell")
         configRowGeneral(items: items, itemWidth: itemWidth, itemHeight: itemHeight)
     }
     
-    func configRow(items: [PersonPreview], itemWidth: Int, itemHeight:Int) {
+    func configRow(items: [PersonPreview], itemWidth: Int, itemHeight: Int) {
         self.category = Category.person
         self.collectionViewRow.register(UINib(nibName: "PersonViewCell", bundle: nil), forCellWithReuseIdentifier: "personCell")
+        configRowGeneral(items: items, itemWidth: itemWidth, itemHeight: itemHeight)
+    }
+    
+    func configRow(items: [TvShowPreview], itemWidth: Int, itemHeight: Int) {
+        self.category = Category.tvShow
+        self.collectionViewRow.register(UINib(nibName: "TvShowViewCell", bundle: nil), forCellWithReuseIdentifier: "tvShowCell")
         configRowGeneral(items: items, itemWidth: itemWidth, itemHeight: itemHeight)
     }
     
@@ -64,6 +70,9 @@ extension CollectionRowTableViewCell: UICollectionViewDataSource {
             
         case Category.person:
             return cellPersonPreview(collectionView, indexPath)
+            
+        case Category.tvShow:
+            return cellTvShowPreview(collectionView, indexPath)
         }
     }
     
@@ -78,6 +87,13 @@ extension CollectionRowTableViewCell: UICollectionViewDataSource {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "personCell", for: indexPath) as! PersonViewCell
         let item = self.items[indexPath.row] as! PersonPreview
         cell.configCell(personPreview: item)
+        return cell
+    }
+    
+    private func cellTvShowPreview(_ collectionView: UICollectionView, _ indexPath: IndexPath) -> TvShowViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "tvShowCell", for: indexPath) as! TvShowViewCell
+        let item = self.items[indexPath.row] as! TvShowPreview
+        cell.configCell(tvShowPreview: item)
         return cell
     }
 }
@@ -97,6 +113,10 @@ extension CollectionRowTableViewCell: UICollectionViewDelegateFlowLayout {
             case Category.person:
                 let person = items[indexPath.row] as! PersonPreview
                 delegate.onPersonNavigation(personId: person.personId!)
+                
+            case Category.tvShow:
+                let tvShow = items[indexPath.row] as! TvShowPreview
+                delegate.onTvShowNavigation(tvShowId: tvShow.tvShowId)
             }
         }
     }
@@ -106,5 +126,6 @@ extension CollectionRowTableViewCell {
     enum Category {
         case movie
         case person
+        case tvShow
     }
 }

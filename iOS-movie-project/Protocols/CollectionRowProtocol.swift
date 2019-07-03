@@ -11,4 +11,5 @@ import Foundation
 protocol CollectionRowProtocol: class {
     func onMovieNavigation(movieId: Int)
     func onPersonNavigation(personId: Int)
+    func onTvShowNavigation(tvShowId: Int)
 }
