@@ -18,6 +18,7 @@ class TvShowViewController: UIViewController {
     
     // ABOUT OUTLETS
     @IBOutlet weak var aboutContentView: UIView!
+    @IBOutlet weak var streamingStackView: UIStackView!
     @IBOutlet weak var startYearLabel: UILabel!
     @IBOutlet weak var finishYearLabel: UILabel!
     @IBOutlet weak var statusLabel: UILabel!
@@ -60,6 +61,7 @@ class TvShowViewController: UIViewController {
         
         loadImages()
         loadInfo()
+        loadStreamingPlatforms()
         loadCredits()
         loadSimilarTvShows()
     }
@@ -103,6 +105,24 @@ class TvShowViewController: UIViewController {
             runtimeLabel.text = "N/A"
         }
         overviewLabel.text = tvShow.overview ?? "N/A"
+    }
+    
+    private func loadStreamingPlatforms() {
+        let arrayOfPlatformViews = streamingStackView.arrangedSubviews
+        arrayOfPlatformViews.forEach { (platformView) in
+            let heigth = platformView.frame.height
+            platformView.layer.borderWidth = 2
+            platformView.layer.borderColor = UIColor(named: "Text")?.cgColor
+            platformView.layer.cornerRadius = heigth/2
+            platformView.isHidden = false
+            
+            apiManager.getStreamingPlatforms(quantity: arrayOfPlatformViews.count, onCompletion: { (platformsArray) in
+                print(platformsArray.count)
+                for (index, element) in arrayOfPlatformViews.enumerated() {
+                    element.isHidden = platformsArray[index]
+                }
+            })
+        }
     }
     
     private func loadCredits() {
