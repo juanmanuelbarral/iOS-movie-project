@@ -150,6 +150,31 @@ class TvShowViewController: UIViewController {
             }
         }
     }
+    
+    @IBAction func onTouchSegmentedControl(_ sender: Any) {
+        switch segmentControl.selectedSegmentIndex {
+        case SegmentedControlOptions.about.rawValue:
+            showAbout()
+            
+        case SegmentedControlOptions.seasons.rawValue:
+            showSeasons()
+            
+        default:
+            showAbout()
+        }
+    }
+    
+    private func showAbout() {
+        print("Perform showAbout")
+        aboutContentView.isHidden = false
+        seasonsContentView.isHidden = true
+    }
+    
+    private func showSeasons() {
+        print("Perform showSeasons")
+        aboutContentView.isHidden = true
+        seasonsContentView.isHidden = false
+    }
 }
 
 extension TvShowViewController: UICollectionViewDataSource {
@@ -282,5 +307,12 @@ extension TvShowViewController: UICollectionViewDelegateFlowLayout {
         default:
             print("Unreachable case - navigation TvViewController")
         }
+    }
+}
+
+extension TvShowViewController {
+    enum SegmentedControlOptions: Int {
+        case about = 0
+        case seasons = 1
     }
 }
