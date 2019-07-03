@@ -16,6 +16,7 @@ class MovieViewController: UIViewController {
     @IBOutlet weak var backdropDecorationImage: UIImageView!
     @IBOutlet weak var posterImage: UIImageView!
     @IBOutlet weak var movieTitle: UILabel!
+    @IBOutlet weak var streamingStackView: UIStackView!
     @IBOutlet weak var overviewText: UILabel!
     @IBOutlet weak var castCollectionView: UICollectionView!
     @IBOutlet weak var similarMoviesCollectionView: UICollectionView!
@@ -44,6 +45,7 @@ class MovieViewController: UIViewController {
         
         loadImages()
         loadInfo()
+        loadStreamingPlatforms()
         loadCredits()
         loadSimilarMovies()
     }
@@ -82,6 +84,24 @@ class MovieViewController: UIViewController {
             self.runtime.text = (hours > 0) ? "\(hours)h \(minutes)'" : "\(minutes)'"
         } else {
             self.runtime.text = "N/A"
+        }
+    }
+    
+    private func loadStreamingPlatforms() {
+        let arrayOfPlatformViews = streamingStackView.arrangedSubviews
+        arrayOfPlatformViews.forEach { (platformView) in
+            let heigth = platformView.frame.height
+            platformView.layer.borderWidth = 2
+            platformView.layer.borderColor = UIColor(named: "Text")?.cgColor
+            platformView.layer.cornerRadius = heigth/2
+            platformView.isHidden = false
+            
+            apiManager.getStreamingPlatforms(quantity: arrayOfPlatformViews.count, onCompletion: { (platformsArray) in
+                print(platformsArray.count)
+                for (index, element) in arrayOfPlatformViews.enumerated() {
+                    element.isHidden = platformsArray[index]
+                }
+            })
         }
     }
     

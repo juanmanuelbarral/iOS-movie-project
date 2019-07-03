@@ -339,6 +339,17 @@ class ApiManager {
             }
         }
     }
+    
+    
+    // (HARCODED) GET STREAMING PLATFORMS
+    func getStreamingPlatforms(quantity: Int, onCompletion: @escaping ([Bool]) -> Void) {
+        var result: [Bool] = []
+        for _ in 1...quantity {
+            let value = Bool.random()
+            result.append(value)
+        }
+        onCompletion(result)
+    }
 }
 
 extension ApiManager {

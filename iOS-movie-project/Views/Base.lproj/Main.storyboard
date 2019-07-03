@@ -8,6 +8,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -138,14 +139,14 @@
             <objects>
                 <viewController storyboardIdentifier="MovieViewController" id="qzY-5C-RqA" customClass="MovieViewController" customModule="iOS_movie_project" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="pX2-tp-Vg0">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="1029"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="1200"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r0P-ea-NTZ">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="1029"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="1122"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="r2g-XI-OQS" userLabel="Content View">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="903"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="977.5"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="search-screen" translatesAutoresizingMaskIntoConstraints="NO" id="sVr-M1-4Jg" userLabel="Decoration top">
                                                 <rect key="frame" x="0.0" y="0.0" width="414" height="200"/>
@@ -174,26 +175,58 @@
                                                 <color key="shadowColor" name="Shadow"/>
                                                 <size key="shadowOffset" width="1" height="2"/>
                                             </label>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="C23-dO-13V">
+                                                <rect key="frame" x="97" y="386" width="220" height="40"/>
+                                                <subviews>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Amazon Prime" translatesAutoresizingMaskIntoConstraints="NO" id="OTU-Ih-Cme" userLabel="Amazon Prime">
+                                                        <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="40" id="AxN-ec-QsB"/>
+                                                        </constraints>
+                                                    </imageView>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Netflix" translatesAutoresizingMaskIntoConstraints="NO" id="7n4-MF-dMZ" userLabel="Netflix">
+                                                        <rect key="frame" x="60" y="0.0" width="40" height="40"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="40" id="3gX-u6-oLO"/>
+                                                        </constraints>
+                                                    </imageView>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="HBO GO" translatesAutoresizingMaskIntoConstraints="NO" id="Yda-AT-97d" userLabel="HBO GO">
+                                                        <rect key="frame" x="120" y="0.0" width="40" height="40"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="40" id="3gi-Cq-zFE"/>
+                                                        </constraints>
+                                                    </imageView>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Hulu" translatesAutoresizingMaskIntoConstraints="NO" id="vog-TB-zLB" userLabel="Hulu">
+                                                        <rect key="frame" x="180" y="0.0" width="40" height="40"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="40" id="lmi-ro-i1J"/>
+                                                        </constraints>
+                                                    </imageView>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="40" id="3f5-Yj-PY2"/>
+                                                </constraints>
+                                            </stackView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Overview" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5xZ-4U-TFP">
-                                                <rect key="frame" x="15" y="386" width="81.5" height="22"/>
+                                                <rect key="frame" x="15" y="461" width="81.5" height="21.5"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                                 <color key="textColor" name="Title text"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Movie overview" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="45E-2i-1Op">
-                                                <rect key="frame" x="15" y="412" width="384" height="17"/>
+                                                <rect key="frame" x="15" y="486.5" width="384" height="17"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <color key="textColor" name="Text"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cast" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GYs-mg-Ugt">
-                                                <rect key="frame" x="15" y="464" width="40" height="22"/>
+                                                <rect key="frame" x="15" y="538.5" width="40" height="21.5"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                                 <color key="textColor" name="Title text"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="iA9-cP-gzb">
-                                                <rect key="frame" x="0.0" y="491" width="414" height="136"/>
+                                                <rect key="frame" x="0.0" y="565" width="414" height="136"/>
                                                 <color key="backgroundColor" name="Background"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="136" id="jml-fq-LkE"/>
@@ -207,13 +240,13 @@
                                                 <cells/>
                                             </collectionView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You might also like" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mln-PP-lOM">
-                                                <rect key="frame" x="15" y="662" width="160.5" height="21"/>
+                                                <rect key="frame" x="15" y="736" width="160.5" height="21.5"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                                 <color key="textColor" name="Title text"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="OTb-Xp-dgC">
-                                                <rect key="frame" x="0.0" y="688" width="414" height="195"/>
+                                                <rect key="frame" x="0.0" y="762.5" width="414" height="195"/>
                                                 <color key="backgroundColor" name="Background"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="195" id="bMl-Fh-Kuh"/>
@@ -244,6 +277,7 @@
                                             <constraint firstAttribute="trailing" secondItem="45E-2i-1Op" secondAttribute="trailing" constant="15" id="5Ru-FG-Wd9"/>
                                             <constraint firstAttribute="trailing" secondItem="GVR-5t-ZrF" secondAttribute="trailing" id="5tA-ei-XPO"/>
                                             <constraint firstItem="yJW-ZG-UtP" firstAttribute="leading" secondItem="r2g-XI-OQS" secondAttribute="leading" constant="45" id="6Tc-qe-D1n"/>
+                                            <constraint firstItem="C23-dO-13V" firstAttribute="top" secondItem="yJW-ZG-UtP" secondAttribute="bottom" constant="35" id="7Rm-c0-5xF"/>
                                             <constraint firstItem="Mln-PP-lOM" firstAttribute="leading" secondItem="5xZ-4U-TFP" secondAttribute="leading" id="8Dt-tB-3NJ"/>
                                             <constraint firstItem="GVR-5t-ZrF" firstAttribute="centerX" secondItem="r2g-XI-OQS" secondAttribute="centerX" id="8Xc-wa-u2t"/>
                                             <constraint firstItem="GYs-mg-Ugt" firstAttribute="leading" secondItem="5xZ-4U-TFP" secondAttribute="leading" id="9Do-5V-EUG"/>
@@ -261,7 +295,6 @@
                                             <constraint firstItem="nDq-Rp-zhn" firstAttribute="top" secondItem="GVR-5t-ZrF" secondAttribute="bottom" constant="45" id="Unv-D4-4kX"/>
                                             <constraint firstItem="iA9-cP-gzb" firstAttribute="leading" secondItem="r2g-XI-OQS" secondAttribute="leading" id="YGo-eP-SyG"/>
                                             <constraint firstAttribute="trailing" secondItem="sVr-M1-4Jg" secondAttribute="trailing" id="bOV-pj-gxs"/>
-                                            <constraint firstItem="5xZ-4U-TFP" firstAttribute="top" secondItem="yJW-ZG-UtP" secondAttribute="bottom" constant="35" id="ccX-3J-b8R"/>
                                             <constraint firstItem="GVR-5t-ZrF" firstAttribute="top" secondItem="r2g-XI-OQS" secondAttribute="top" id="dSK-8E-YyC"/>
                                             <constraint firstItem="GVR-5t-ZrF" firstAttribute="leading" secondItem="r2g-XI-OQS" secondAttribute="leading" id="gV8-3K-Jmr"/>
                                             <constraint firstAttribute="trailing" secondItem="iA9-cP-gzb" secondAttribute="trailing" id="hZ2-Hb-b16"/>
@@ -270,7 +303,10 @@
                                             <constraint firstItem="sVr-M1-4Jg" firstAttribute="leading" secondItem="r2g-XI-OQS" secondAttribute="leading" id="jO8-wm-8fC"/>
                                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="GYs-mg-Ugt" secondAttribute="trailing" constant="15" id="mi6-hF-RPl"/>
                                             <constraint firstItem="5xZ-4U-TFP" firstAttribute="leading" secondItem="r2g-XI-OQS" secondAttribute="leading" constant="15" id="pVq-3u-n0C"/>
+                                            <constraint firstItem="5xZ-4U-TFP" firstAttribute="top" secondItem="C23-dO-13V" secondAttribute="bottom" constant="35" id="rBN-I5-Xcc"/>
                                             <constraint firstItem="GYs-mg-Ugt" firstAttribute="top" secondItem="45E-2i-1Op" secondAttribute="bottom" constant="35" id="rCW-zr-SlI"/>
+                                            <constraint firstItem="C23-dO-13V" firstAttribute="leading" secondItem="r2g-XI-OQS" secondAttribute="centerX" constant="-110" id="rJw-4b-13d"/>
+                                            <constraint firstItem="C23-dO-13V" firstAttribute="centerX" secondItem="r2g-XI-OQS" secondAttribute="centerX" id="sPg-6X-eaw"/>
                                             <constraint firstItem="bIz-D3-p4n" firstAttribute="top" secondItem="GVR-5t-ZrF" secondAttribute="bottom" constant="45" id="sdc-b2-j3F"/>
                                             <constraint firstAttribute="trailing" secondItem="OTb-Xp-dgC" secondAttribute="trailing" id="sun-X8-HP1"/>
                                             <constraint firstItem="lEd-OO-UbC" firstAttribute="leading" secondItem="nDq-Rp-zhn" secondAttribute="trailing" constant="5" id="t8H-Ve-wy7"/>
@@ -310,6 +346,7 @@
                         <outlet property="runtime" destination="bIz-D3-p4n" id="pgH-41-5E9"/>
                         <outlet property="scrollView" destination="r0P-ea-NTZ" id="XQH-EC-TSX"/>
                         <outlet property="similarMoviesCollectionView" destination="OTb-Xp-dgC" id="oeK-Nf-L7X"/>
+                        <outlet property="streamingStackView" destination="C23-dO-13V" id="Yq5-SU-LQL"/>
                         <outlet property="year" destination="nDq-Rp-zhn" id="zD9-uX-391"/>
                         <segue destination="CmM-Bk-lts" kind="show" identifier="fromMovieToPerson" id="hxM-8o-vns"/>
                     </connections>
@@ -393,11 +430,11 @@
             <objects>
                 <viewController id="CmM-Bk-lts" customClass="PersonViewController" customModule="iOS_movie_project" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8v5-cF-ixu">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="929"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="1100"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4oJ-eF-Y9d">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="929"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="1022"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zR9-TS-3v2" userLabel="Content View">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="883"/>
@@ -894,6 +931,10 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Amazon Prime" width="150" height="150"/>
+        <image name="HBO GO" width="310" height="178"/>
+        <image name="Hulu" width="310" height="196"/>
+        <image name="Netflix" width="512" height="512"/>
         <image name="favourites-icon" width="30.5" height="30.5"/>
         <image name="search-button" width="128" height="128"/>
         <image name="search-icon" width="30.5" height="26"/>
@@ -922,7 +963,7 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="Ss2-vM-Fay"/>
-        <segue reference="j9b-8g-ejW"/>
+        <segue reference="hxM-8o-vns"/>
         <segue reference="vEi-E3-g47"/>
     </inferredMetricsTieBreakers>
 </document>
